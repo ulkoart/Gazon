@@ -13,6 +13,9 @@
 		9A38645028ACCA940055C905 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644D28ACCA940055C905 /* UserProfileController.swift */; };
 		9A38645128ACCA940055C905 /* UserProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644E28ACCA940055C905 /* UserProfileCoordinator.swift */; };
 		9A38645228ACCA940055C905 /* UserProfileFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644F28ACCA940055C905 /* UserProfileFactory.swift */; };
+		9A38645928ACD1320055C905 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38645828ACD1320055C905 /* HomeViewModel.swift */; };
+		9A38645C28ACD4230055C905 /* HomeItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38645B28ACD4230055C905 /* HomeItemCell.swift */; };
+		9AC5E07128ACE70D0088DD3E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5E07028ACE70D0088DD3E /* UIView.swift */; };
 		CE6B422528AA195900A97D05 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422428AA195900A97D05 /* Coordinator.swift */; };
 		CE6B422728AA19DB00A97D05 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422628AA19DB00A97D05 /* AppCoordinator.swift */; };
 		CE6B422B28AA271C00A97D05 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422A28AA271C00A97D05 /* TabBarCoordinator.swift */; };
@@ -40,6 +43,9 @@
 		9A38644D28ACCA940055C905 /* UserProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		9A38644E28ACCA940055C905 /* UserProfileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileCoordinator.swift; sourceTree = "<group>"; };
 		9A38644F28ACCA940055C905 /* UserProfileFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileFactory.swift; sourceTree = "<group>"; };
+		9A38645828ACD1320055C905 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9A38645B28ACD4230055C905 /* HomeItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemCell.swift; sourceTree = "<group>"; };
+		9AC5E07028ACE70D0088DD3E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CE6B422428AA195900A97D05 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CE6B422628AA19DB00A97D05 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		CE6B422A28AA271C00A97D05 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -92,6 +98,30 @@
 				9A38644F28ACCA940055C905 /* UserProfileFactory.swift */,
 			);
 			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		9A38645328ACD1050055C905 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9A38645828ACD1320055C905 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9A38645A28ACD4150055C905 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9A38645B28ACD4230055C905 /* HomeItemCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9AC5E06F28ACE6FB0088DD3E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9AC5E07028ACE70D0088DD3E /* UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CE6B422828AA208500A97D05 /* Protocols */ = {
@@ -162,6 +192,7 @@
 		CE9B57B428A581AD0063AC8A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9AC5E06F28ACE6FB0088DD3E /* Extensions */,
 				CE6B422828AA208500A97D05 /* Protocols */,
 				CE6B422628AA19DB00A97D05 /* AppCoordinator.swift */,
 				CE9B57C728A63D9C0063AC8A /* ModuleBuilder.swift */,
@@ -172,12 +203,12 @@
 		CE9B57B728A61C740063AC8A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				9A38644C28ACCA940055C905 /* UserProfile */,
-				9A38644528ACCA870055C905 /* Cart */,
 				CE6B422928AA253600A97D05 /* TabBar */,
 				CE9B57C228A62C300063AC8A /* Home */,
 				CE6B423228AA4D8600A97D05 /* HomeInfo */,
 				CE9B57B828A61C8C0063AC8A /* Catalog */,
+				9A38644528ACCA870055C905 /* Cart */,
+				9A38644C28ACCA940055C905 /* UserProfile */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -195,6 +226,8 @@
 		CE9B57C228A62C300063AC8A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9A38645A28ACD4150055C905 /* Cells */,
+				9A38645328ACD1050055C905 /* ViewModel */,
 				CE6B422E28AA2C7100A97D05 /* HomeCoordinator.swift */,
 				CE9B57C528A62FB70063AC8A /* HomeController.swift */,
 				CE9B57C328A62C930063AC8A /* HomeFactory.swift */,
@@ -297,6 +330,7 @@
 				CE9B57C028A61DF30063AC8A /* CatalogFactory.swift in Sources */,
 				CE6B422B28AA271C00A97D05 /* TabBarCoordinator.swift in Sources */,
 				CE9B57C628A62FB70063AC8A /* HomeController.swift in Sources */,
+				9A38645928ACD1320055C905 /* HomeViewModel.swift in Sources */,
 				CE6B422F28AA2C7200A97D05 /* HomeCoordinator.swift in Sources */,
 				9A38645128ACCA940055C905 /* UserProfileCoordinator.swift in Sources */,
 				CE6B422528AA195900A97D05 /* Coordinator.swift in Sources */,
@@ -311,7 +345,9 @@
 				CE6B423428AA4DAA00A97D05 /* HomeInfoCoordinator.swift in Sources */,
 				CE9B57A228A57FA10063AC8A /* SceneDelegate.swift in Sources */,
 				9A38644B28ACCA870055C905 /* CartCoordinator.swift in Sources */,
+				9AC5E07128ACE70D0088DD3E /* UIView.swift in Sources */,
 				9A38645228ACCA940055C905 /* UserProfileFactory.swift in Sources */,
+				9A38645C28ACD4230055C905 /* HomeItemCell.swift in Sources */,
 				9A38645028ACCA940055C905 /* UserProfileController.swift in Sources */,
 				CE9B57BE28A61D970063AC8A /* ModuleFactory.swift in Sources */,
 			);

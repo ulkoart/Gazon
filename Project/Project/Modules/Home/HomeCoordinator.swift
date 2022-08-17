@@ -21,7 +21,9 @@ class HomeCoordinator: Coordinator {
 
     func start() {
         let homeControler = HomeFactory.createModule()
+        let viewModel = HomeViewModelImpl()
         homeControler.coordinator = self
+		homeControler.viewModel = viewModel
         navigationController.pushViewController(homeControler, animated: false)
     }
 }
