@@ -28,8 +28,23 @@ class TabBarCoordinator: Coordinator {
         let catalogCoordinator = CatalogCoordinator(catalogNavigationController)
         catalogCoordinator.start()
         store(coordinator: catalogCoordinator)
+		
+		let cartNavigationController = UINavigationController()
+		let cartCoordinator = CartCoordinator(cartNavigationController)
+		cartCoordinator.start()
+		store(coordinator: cartCoordinator)
 
-        tabBarController.viewControllers = [homeNavigationController, catalogNavigationController]
-        navigationController.viewControllers = [tabBarController]
+		let userProfileNavigationController = UINavigationController()
+		let userProfileCoordinator = UserProfileCoordinator(userProfileNavigationController)
+		userProfileCoordinator.start()
+		store(coordinator: userProfileCoordinator)
+
+        tabBarController.viewControllers = [
+			homeNavigationController,
+			catalogNavigationController,
+			cartNavigationController,
+			userProfileNavigationController
+		]
+        navigationController.setViewControllers([tabBarController], animated: false)
     }
 }

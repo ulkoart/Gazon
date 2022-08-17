@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A38644928ACCA870055C905 /* CartFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644628ACCA870055C905 /* CartFactory.swift */; };
+		9A38644A28ACCA870055C905 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644728ACCA870055C905 /* CartController.swift */; };
+		9A38644B28ACCA870055C905 /* CartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644828ACCA870055C905 /* CartCoordinator.swift */; };
+		9A38645028ACCA940055C905 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644D28ACCA940055C905 /* UserProfileController.swift */; };
+		9A38645128ACCA940055C905 /* UserProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644E28ACCA940055C905 /* UserProfileCoordinator.swift */; };
+		9A38645228ACCA940055C905 /* UserProfileFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644F28ACCA940055C905 /* UserProfileFactory.swift */; };
 		CE6B422528AA195900A97D05 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422428AA195900A97D05 /* Coordinator.swift */; };
 		CE6B422728AA19DB00A97D05 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422628AA19DB00A97D05 /* AppCoordinator.swift */; };
 		CE6B422B28AA271C00A97D05 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422A28AA271C00A97D05 /* TabBarCoordinator.swift */; };
@@ -28,6 +34,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A38644628ACCA870055C905 /* CartFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartFactory.swift; sourceTree = "<group>"; };
+		9A38644728ACCA870055C905 /* CartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
+		9A38644828ACCA870055C905 /* CartCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartCoordinator.swift; sourceTree = "<group>"; };
+		9A38644D28ACCA940055C905 /* UserProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		9A38644E28ACCA940055C905 /* UserProfileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileCoordinator.swift; sourceTree = "<group>"; };
+		9A38644F28ACCA940055C905 /* UserProfileFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileFactory.swift; sourceTree = "<group>"; };
 		CE6B422428AA195900A97D05 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CE6B422628AA19DB00A97D05 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		CE6B422A28AA271C00A97D05 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -61,6 +73,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A38644528ACCA870055C905 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				9A38644628ACCA870055C905 /* CartFactory.swift */,
+				9A38644728ACCA870055C905 /* CartController.swift */,
+				9A38644828ACCA870055C905 /* CartCoordinator.swift */,
+			);
+			name = Cart;
+			path = Project/Modules/Cart;
+			sourceTree = SOURCE_ROOT;
+		};
+		9A38644C28ACCA940055C905 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				9A38644D28ACCA940055C905 /* UserProfileController.swift */,
+				9A38644E28ACCA940055C905 /* UserProfileCoordinator.swift */,
+				9A38644F28ACCA940055C905 /* UserProfileFactory.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
 		CE6B422828AA208500A97D05 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +172,8 @@
 		CE9B57B728A61C740063AC8A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9A38644C28ACCA940055C905 /* UserProfile */,
+				9A38644528ACCA870055C905 /* Cart */,
 				CE6B422928AA253600A97D05 /* TabBar */,
 				CE9B57C228A62C300063AC8A /* Home */,
 				CE6B423228AA4D8600A97D05 /* HomeInfo */,
@@ -263,7 +298,10 @@
 				CE6B422B28AA271C00A97D05 /* TabBarCoordinator.swift in Sources */,
 				CE9B57C628A62FB70063AC8A /* HomeController.swift in Sources */,
 				CE6B422F28AA2C7200A97D05 /* HomeCoordinator.swift in Sources */,
+				9A38645128ACCA940055C905 /* UserProfileCoordinator.swift in Sources */,
 				CE6B422528AA195900A97D05 /* Coordinator.swift in Sources */,
+				9A38644A28ACCA870055C905 /* CartController.swift in Sources */,
+				9A38644928ACCA870055C905 /* CartFactory.swift in Sources */,
 				CE9B57A428A57FA10063AC8A /* CatalogController.swift in Sources */,
 				CE6B423128AA3D5F00A97D05 /* CatalogCoordinator.swift in Sources */,
 				CE9B57C428A62C930063AC8A /* HomeFactory.swift in Sources */,
@@ -272,6 +310,9 @@
 				CE6B423628AA4DC200A97D05 /* HomeInfoController.swift in Sources */,
 				CE6B423428AA4DAA00A97D05 /* HomeInfoCoordinator.swift in Sources */,
 				CE9B57A228A57FA10063AC8A /* SceneDelegate.swift in Sources */,
+				9A38644B28ACCA870055C905 /* CartCoordinator.swift in Sources */,
+				9A38645228ACCA940055C905 /* UserProfileFactory.swift in Sources */,
+				9A38645028ACCA940055C905 /* UserProfileController.swift in Sources */,
 				CE9B57BE28A61D970063AC8A /* ModuleFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
