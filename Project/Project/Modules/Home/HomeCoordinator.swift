@@ -11,7 +11,7 @@ protocol HomeFlow {
     func coordinateToInfo()
 }
 
-class HomeCoordinator: Coordinator {
+final class HomeCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
 

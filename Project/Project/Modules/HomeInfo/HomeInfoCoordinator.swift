@@ -11,7 +11,7 @@ protocol HomeInfoFlow {
     func closeInfo()
 }
 
-class HomeInfoCoordinator: Coordinator {
+final class HomeInfoCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     let navigationController: UINavigationController
     var isCompleted: (() -> Void)?

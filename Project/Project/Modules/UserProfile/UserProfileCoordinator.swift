@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserProfileCoordinator: Coordinator {
+final class UserProfileCoordinator: Coordinator {
 	var childCoordinators: [Coordinator] = []
 	var navigationController: UINavigationController
 

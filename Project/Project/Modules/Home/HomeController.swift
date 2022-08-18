@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 final class HomeController: UIViewController {
 
+	private var cancellables: Set<AnyCancellable> = []
 	var viewModel: HomeViewModel?
 	var coordinator: HomeFlow?
-
+	
 	private let collectionView: UICollectionView = {
 		let layout = UICollectionViewFlowLayout()
 		layout.scrollDirection = .vertical
@@ -23,6 +25,13 @@ final class HomeController: UIViewController {
 		collection.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
 		return collection
 	}()
+
+	private let activityIndicator: UIActivityIndicatorView = {
+		$0.style = .large
+		$0.startAnimating()
+		$0.hidesWhenStopped = true
+		return $0
+	}(UIActivityIndicatorView())
 
 	convenience init() {
 		self.init(viewModel: nil)
@@ -40,6 +49,8 @@ final class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		setup()
+		bindViewModel()
+		self.viewModel?.retrieveData()
     }
 
 	private func setup() {
@@ -51,6 +62,9 @@ final class HomeController: UIViewController {
 		collectionView.backgroundColor = .clear
 		collectionView.delegate = self
 		collectionView.dataSource = self
+
+		view.addSubview(activityIndicator)
+		activityIndicator.centerInSuperview()
 	}
 
 	private func addInfoButton() {
@@ -61,19 +75,37 @@ final class HomeController: UIViewController {
 		)
 		navigationItem.rightBarButtonItems = [infoButton]
 	}
+	
+	private func bindViewModel() {
+
+		viewModel?.itemsPublisher
+		   .receive(on: DispatchQueue.main)
+		   .sink { [weak self] items in
+			   if !items.isEmpty {
+				   self?.collectionView.reloadData()
+				   self?.activityIndicator.stopAnimating()
+			   }
+		   }
+		   .store(in: &cancellables)
+
+		viewModel?.isLoadingPublisher
+			.receive(on: DispatchQueue.main)
+			.sink { [weak self] isLoading in
+				self?.activityIndicator.isHidden = !isLoading
+			}
+			.store(in: &cancellables)
+	}
 
     @objc private func infoButtonTapped() {
         coordinator?.coordinateToInfo()
     }
 }
 
-extension HomeController: UICollectionViewDelegate {
-
-}
+extension HomeController: UICollectionViewDelegate {}
 
 extension HomeController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return viewModel?.numberOfItemsInSection ?? 0
+		return viewModel?.itemsCount ?? 0
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

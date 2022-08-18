@@ -9,7 +9,7 @@ import Foundation
 
 import UIKit
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 
 		if #available(iOS 15, *) {
