@@ -15,6 +15,9 @@
 		9A38645228ACCA940055C905 /* UserProfileFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644F28ACCA940055C905 /* UserProfileFactory.swift */; };
 		9A38645928ACD1320055C905 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38645828ACD1320055C905 /* HomeViewModel.swift */; };
 		9A38645C28ACD4230055C905 /* HomeItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38645B28ACD4230055C905 /* HomeItemCell.swift */; };
+		9A69D63228AF6E0200142778 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69D63128AF6E0200142778 /* ApiService.swift */; };
+		9A69D63528AF6FAF00142778 /* ApiServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69D63428AF6FAF00142778 /* ApiServiceProvider.swift */; };
+		9A69D63B28AF8F9100142778 /* JPHService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69D63A28AF8F9100142778 /* JPHService.swift */; };
 		9AC5E07128ACE70D0088DD3E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5E07028ACE70D0088DD3E /* UIView.swift */; };
 		CE6B422528AA195900A97D05 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422428AA195900A97D05 /* Coordinator.swift */; };
 		CE6B422728AA19DB00A97D05 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422628AA19DB00A97D05 /* AppCoordinator.swift */; };
@@ -45,6 +48,9 @@
 		9A38644F28ACCA940055C905 /* UserProfileFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileFactory.swift; sourceTree = "<group>"; };
 		9A38645828ACD1320055C905 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9A38645B28ACD4230055C905 /* HomeItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemCell.swift; sourceTree = "<group>"; };
+		9A69D63128AF6E0200142778 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		9A69D63428AF6FAF00142778 /* ApiServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceProvider.swift; sourceTree = "<group>"; };
+		9A69D63A28AF8F9100142778 /* JPHService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPHService.swift; sourceTree = "<group>"; };
 		9AC5E07028ACE70D0088DD3E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CE6B422428AA195900A97D05 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CE6B422628AA19DB00A97D05 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -116,6 +122,32 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		9A69D63028AF6BF200142778 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9A69D63928AF8F7800142778 /* JPH */,
+				9A69D63328AF6F9F00142778 /* Api */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9A69D63328AF6F9F00142778 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				9A69D63128AF6E0200142778 /* ApiService.swift */,
+				9A69D63428AF6FAF00142778 /* ApiServiceProvider.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		9A69D63928AF8F7800142778 /* JPH */ = {
+			isa = PBXGroup;
+			children = (
+				9A69D63A28AF8F9100142778 /* JPHService.swift */,
+			);
+			path = JPH;
+			sourceTree = "<group>";
+		};
 		9AC5E06F28ACE6FB0088DD3E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +202,7 @@
 		CE9B579E28A57FA10063AC8A /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				9A69D63028AF6BF200142778 /* Services */,
 				CE9B57B328A5810E0063AC8A /* Default */,
 				CE9B57B428A581AD0063AC8A /* Common */,
 				CE9B57B728A61C740063AC8A /* Modules */,
@@ -333,7 +366,9 @@
 				9A38645928ACD1320055C905 /* HomeViewModel.swift in Sources */,
 				CE6B422F28AA2C7200A97D05 /* HomeCoordinator.swift in Sources */,
 				9A38645128ACCA940055C905 /* UserProfileCoordinator.swift in Sources */,
+				9A69D63528AF6FAF00142778 /* ApiServiceProvider.swift in Sources */,
 				CE6B422528AA195900A97D05 /* Coordinator.swift in Sources */,
+				9A69D63B28AF8F9100142778 /* JPHService.swift in Sources */,
 				9A38644A28ACCA870055C905 /* CartController.swift in Sources */,
 				9A38644928ACCA870055C905 /* CartFactory.swift in Sources */,
 				CE9B57A428A57FA10063AC8A /* CatalogController.swift in Sources */,
@@ -345,6 +380,7 @@
 				CE6B423428AA4DAA00A97D05 /* HomeInfoCoordinator.swift in Sources */,
 				CE9B57A228A57FA10063AC8A /* SceneDelegate.swift in Sources */,
 				9A38644B28ACCA870055C905 /* CartCoordinator.swift in Sources */,
+				9A69D63228AF6E0200142778 /* ApiService.swift in Sources */,
 				9AC5E07128ACE70D0088DD3E /* UIView.swift in Sources */,
 				9A38645228ACCA940055C905 /* UserProfileFactory.swift in Sources */,
 				9A38645C28ACD4230055C905 /* HomeItemCell.swift in Sources */,
