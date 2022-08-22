@@ -35,7 +35,7 @@ extension JPHService: ApiService {
 	}
 }
 
-struct ToDo: Codable {
+struct item: Codable {
 	let userID, id: Int
 	let title: String
 	let completed: Bool

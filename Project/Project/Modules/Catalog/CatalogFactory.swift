@@ -8,7 +8,7 @@
 import UIKit
 
 enum CatalogFactory: ModuleFactory {
-    static func createModule() -> UIViewController {
+    static func createModule() -> CatalogController {
         let viewController = CatalogController()
         viewController.tabBarItem.image = UIImage(systemName: "list.bullet.rectangle")
         viewController.tabBarItem.title = .none

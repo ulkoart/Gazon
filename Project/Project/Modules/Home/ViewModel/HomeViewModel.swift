@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol HomeViewModel {
-	var itemsPublisher: Published<[ToDo]>.Publisher { get }
+	var itemsPublisher: Published<[item]>.Publisher { get }
 	var isLoadingPublisher: Published<Bool>.Publisher { get }
 	var itemsCount: Int { get }
 
@@ -19,7 +19,7 @@ protocol HomeViewModel {
 final class HomeViewModelImpl: ObservableObject {
 	let provider: ApiServiceProvider<JPHService>
 	
-	@Published private var items: [ToDo] = []
+	@Published private var items: [item] = []
 	@Published private var isLoading: Bool = false
 
 	init(provider: ApiServiceProvider<JPHService> = ApiServiceProvider<JPHService>()) {
@@ -29,13 +29,13 @@ final class HomeViewModelImpl: ObservableObject {
 
 extension HomeViewModelImpl: HomeViewModel {
 	var isLoadingPublisher: Published<Bool>.Publisher { $isLoading}
-	var itemsPublisher: Published<[ToDo]>.Publisher { $items }
+	var itemsPublisher: Published<[item]>.Publisher { $items }
 	var itemsCount: Int { items.count }
 
 	func retrieveData() {
 		self.isLoading = true
 
-		provider.load(service: .todos, decodeType: [ToDo].self) { [weak self] result in
+		provider.load(service: .todos, decodeType: [item].self) { [weak self] result in
 			switch result {
 			case let .success(todos):
 				self?.items = todos

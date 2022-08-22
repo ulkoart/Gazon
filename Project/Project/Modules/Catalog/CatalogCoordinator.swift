@@ -16,7 +16,8 @@ final class CatalogCoordinator: Coordinator {
     }
 
     func start() {
-        let catalogFactory = CatalogFactory.createModule()
-        navigationController.pushViewController(catalogFactory, animated: false)
+        let catalogControler = CatalogFactory.createModule()
+		catalogControler.viewModel = CatalogViewModelImpl()
+        navigationController.pushViewController(catalogControler, animated: false)
     }
 }
