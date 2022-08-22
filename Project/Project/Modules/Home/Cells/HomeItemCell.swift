@@ -25,7 +25,7 @@ final class HomeItemCell: UICollectionViewCell {
 		$0.text = "Покажите этот код"
 		return $0
 	}(UILabel())
-	
+
 	private let codeLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.font = .init(.systemFont(ofSize: 12, weight: .bold))
@@ -49,7 +49,7 @@ final class HomeItemCell: UICollectionViewCell {
 		layer.shadowColor = UIColor.black.cgColor
 		layer.shadowOpacity = 0.10
 		layer.shadowOffset = CGSize(width: 0, height: 5)
-	
+
 		addSubview(titleLabel)
 		NSLayoutConstraint.activate([
 			titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
@@ -65,7 +65,7 @@ final class HomeItemCell: UICollectionViewCell {
 		addSubview(codeLabel)
 		NSLayoutConstraint.activate([
 			codeLabel.leadingAnchor.constraint(equalTo: textLabel.trailingAnchor, constant: 4),
-			codeLabel.bottomAnchor.constraint(equalTo: textLabel.bottomAnchor),
+			codeLabel.bottomAnchor.constraint(equalTo: textLabel.bottomAnchor)
 
 		])
 

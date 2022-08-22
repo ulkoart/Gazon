@@ -28,7 +28,7 @@ final class TabBarCoordinator: Coordinator {
         let catalogCoordinator = CatalogCoordinator(catalogNavigationController)
         catalogCoordinator.start()
         store(coordinator: catalogCoordinator)
-		
+
 		let cartNavigationController = UINavigationController()
 		let cartCoordinator = CartCoordinator(cartNavigationController)
 		cartCoordinator.start()

@@ -16,4 +16,3 @@ enum UserProfileFactory: ModuleFactory {
 		return viewController
 	}
 }
-

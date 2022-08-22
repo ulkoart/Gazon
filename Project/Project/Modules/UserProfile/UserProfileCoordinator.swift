@@ -20,4 +20,3 @@ final class UserProfileCoordinator: Coordinator {
 		navigationController.pushViewController(catalogFactory, animated: false)
 	}
 }
-
