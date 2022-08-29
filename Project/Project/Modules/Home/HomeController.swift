@@ -14,7 +14,7 @@ final class HomeController: UIViewController {
 	private let featureToggleService = FeatureToggleService.shared
 	var viewModel: HomeViewModel?
 	var coordinator: HomeFlow?
-	
+
 	private let collectionView: UICollectionView = {
 		let layout = UICollectionViewFlowLayout()
 		layout.scrollDirection = .vertical
@@ -37,7 +37,7 @@ final class HomeController: UIViewController {
 	convenience init() {
 		self.init(viewModel: nil)
 	}
-	
+
 	init(viewModel: HomeViewModel?) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
@@ -77,7 +77,7 @@ final class HomeController: UIViewController {
 		)
 		navigationItem.rightBarButtonItems = [infoButton]
 	}
-	
+
 	private func bindViewModel() {
 
 		viewModel?.itemsPublisher
@@ -109,7 +109,7 @@ extension HomeController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return viewModel?.itemsCount ?? 0
 	}
-	
+
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeItemCell.identifier, for: indexPath)
 		return cell
@@ -117,7 +117,11 @@ extension HomeController: UICollectionViewDataSource {
 }
 
 extension HomeController: UICollectionViewDelegateFlowLayout {
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+	func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
 		return .init(width: view.frame.width - 32, height: 100)
 	}
 }

@@ -15,11 +15,11 @@ enum NetworkError: Error {
 final class ApiServiceProvider<T: ApiService> {
 	private let urlSession: URLSession = URLSession(configuration: URLSessionConfiguration.default)
 	private let decoder: JSONDecoder = JSONDecoder()
-	
+
 	func load(service: T, completion: @escaping (Result<Data, Error>) -> Void) {
 		call(service.urlRequest, completion: completion)
 	}
-	
+
 	func load<U>(service: T, decodeType: U.Type, completion: @escaping (Result<U, Error>) -> Void) where U: Decodable {
 		call(service.urlRequest) { result in
 			switch result {

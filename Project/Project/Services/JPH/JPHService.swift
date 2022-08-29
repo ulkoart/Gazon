@@ -16,7 +16,7 @@ extension JPHService: ApiService {
 	var baseURL: String {
 		"https://jsonplaceholder.typicode.com"
 	}
-	
+
 	var path: String {
 		switch self {
 		case .todos:
@@ -25,17 +25,17 @@ extension JPHService: ApiService {
 			return "/todos/\(id)"
 		}
 	}
-	
-	var parameters: [String : Any]? {
+
+	var parameters: [String: Any]? {
 		return nil
 	}
-	
+
 	var method: ApiServiceMethod {
 		return .get
 	}
 }
 
-struct item: Codable {
+struct Item: Codable {
 	let userID, id: Int
 	let title: String
 	let completed: Bool

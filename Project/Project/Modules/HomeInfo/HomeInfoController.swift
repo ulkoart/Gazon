@@ -21,7 +21,7 @@ final class HomeInfoController: UIViewController {
 		button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         return button
     }()
-	
+
 	private let logoImageView: UIImageView = {
 		$0.image = UIImage(named: "logo")
 		return $0
@@ -41,7 +41,7 @@ final class HomeInfoController: UIViewController {
 
 		view.addSubview(logoImageView)
 		logoImageView.centerInSuperview()
-		
+
 		view.addSubview(closeButton)
         NSLayoutConstraint.activate([
             closeButton.widthAnchor.constraint(equalToConstant: 200),

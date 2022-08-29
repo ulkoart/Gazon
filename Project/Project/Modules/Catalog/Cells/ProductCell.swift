@@ -8,16 +8,21 @@
 import UIKit
 
 final class ProductCell: UICollectionViewCell {
-	
+
 	override var isHighlighted: Bool {
 		didSet {
 			var transform: CGAffineTransform = .identity
-			
+
 			if isHighlighted {
 				transform = .init(scaleX: 0.95, y: 0.95)
 			}
-			
-			UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut) {
+
+			UIView.animate(
+                withDuration: 0.3,
+                delay: 0,
+                usingSpringWithDamping: 1,
+                initialSpringVelocity: 1,
+                options: .curveEaseOut) {
 				self.transform = transform
 			}
 		}
@@ -66,7 +71,7 @@ final class ProductCell: UICollectionViewCell {
 			titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
 			titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4)
 		])
-		
+
 		addSubview(priceLabel)
 		NSLayoutConstraint.activate([
 			priceLabel.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -2),
