@@ -11,6 +11,7 @@ import Combine
 final class HomeController: UIViewController {
 
 	private var cancellables: Set<AnyCancellable> = []
+	private let featureToggleService = FeatureToggleService.shared
 	var viewModel: HomeViewModel?
 	var coordinator: HomeFlow?
 	
@@ -55,8 +56,9 @@ final class HomeController: UIViewController {
 
 	private func setup() {
 		view.backgroundColor = UIColor(white: 0.95, alpha: 1)
-		addInfoButton()
-
+		if featureToggleService.isEnabled(.homeScreenInfoButton) {
+			addInfoButton()
+		}
 		view.addSubview(collectionView)
 		collectionView.fillSuperview()
 		collectionView.backgroundColor = .clear

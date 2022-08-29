@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AppFlow {
+	func coordinateToMainFlow()
+}
+
 final class AppCoordinator: Coordinator {
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
@@ -17,8 +21,27 @@ final class AppCoordinator: Coordinator {
     }
 
     func start() {
-        let tabBarCoordinator = TabBarCoordinator(navigationController)
-        store(coordinator: tabBarCoordinator)
-        tabBarCoordinator.start()
+		let previewViewController = UIViewController()
+		previewViewController.view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+		navigationController.viewControllers = [previewViewController]
+		loadfeatureToggle()
     }
+	
+	private func loadfeatureToggle() {
+		let featureToggleService = FeatureToggleService.shared
+		let provider = RemoteFeatureToggleProvider()
+		featureToggleService.fetchFeatureToggles(provider: provider) { [weak self] in
+			DispatchQueue.main.async {
+				self?.coordinateToMainFlow()
+			}
+		}
+	}
+}
+
+extension AppCoordinator: AppFlow {
+	func coordinateToMainFlow() {
+		let tabBarCoordinator = TabBarCoordinator(navigationController)
+		store(coordinator: tabBarCoordinator)
+		tabBarCoordinator.start()
+	}
 }

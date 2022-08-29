@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A29D00F28BCB92C00B339A6 /* FeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D00E28BCB92C00B339A6 /* FeatureToggle.swift */; };
+		9A29D01128BCC29800B339A6 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01028BCC29800B339A6 /* Feature.swift */; };
+		9A29D01328BCC2AA00B339A6 /* FeatureToggleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01228BCC2AA00B339A6 /* FeatureToggleService.swift */; };
+		9A29D01528BCC3F200B339A6 /* FeatureToggleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01428BCC3F200B339A6 /* FeatureToggleProvider.swift */; };
+		9A29D01728BCC67000B339A6 /* RemoteFeatureToggleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01628BCC66F00B339A6 /* RemoteFeatureToggleProvider.swift */; };
+		9A29D01928BCD21900B339A6 /* RemoteFeatureToggleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01828BCD21900B339A6 /* RemoteFeatureToggleService.swift */; };
 		9A38644928ACCA870055C905 /* CartFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644628ACCA870055C905 /* CartFactory.swift */; };
 		9A38644A28ACCA870055C905 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644728ACCA870055C905 /* CartController.swift */; };
 		9A38644B28ACCA870055C905 /* CartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644828ACCA870055C905 /* CartCoordinator.swift */; };
@@ -43,6 +49,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A29D00E28BCB92C00B339A6 /* FeatureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggle.swift; sourceTree = "<group>"; };
+		9A29D01028BCC29800B339A6 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		9A29D01228BCC2AA00B339A6 /* FeatureToggleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggleService.swift; sourceTree = "<group>"; };
+		9A29D01428BCC3F200B339A6 /* FeatureToggleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggleProvider.swift; sourceTree = "<group>"; };
+		9A29D01628BCC66F00B339A6 /* RemoteFeatureToggleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeatureToggleProvider.swift; sourceTree = "<group>"; };
+		9A29D01828BCD21900B339A6 /* RemoteFeatureToggleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeatureToggleService.swift; sourceTree = "<group>"; };
 		9A38644628ACCA870055C905 /* CartFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartFactory.swift; sourceTree = "<group>"; };
 		9A38644728ACCA870055C905 /* CartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
 		9A38644828ACCA870055C905 /* CartCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartCoordinator.swift; sourceTree = "<group>"; };
@@ -91,6 +103,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A29D00D28BCB90D00B339A6 /* FeatureToggle */ = {
+			isa = PBXGroup;
+			children = (
+				9A29D01A28BCD24E00B339A6 /* RemoteToggle */,
+				9A29D01028BCC29800B339A6 /* Feature.swift */,
+				9A29D00E28BCB92C00B339A6 /* FeatureToggle.swift */,
+				9A29D01228BCC2AA00B339A6 /* FeatureToggleService.swift */,
+				9A29D01428BCC3F200B339A6 /* FeatureToggleProvider.swift */,
+			);
+			path = FeatureToggle;
+			sourceTree = "<group>";
+		};
+		9A29D01A28BCD24E00B339A6 /* RemoteToggle */ = {
+			isa = PBXGroup;
+			children = (
+				9A29D01628BCC66F00B339A6 /* RemoteFeatureToggleProvider.swift */,
+				9A29D01828BCD21900B339A6 /* RemoteFeatureToggleService.swift */,
+			);
+			path = RemoteToggle;
+			sourceTree = "<group>";
+		};
 		9A38644528ACCA870055C905 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +164,7 @@
 		9A69D63028AF6BF200142778 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9A29D00D28BCB90D00B339A6 /* FeatureToggle */,
 				9A69D63928AF8F7800142778 /* JPH */,
 				9A69D63328AF6F9F00142778 /* Api */,
 			);
@@ -225,9 +259,9 @@
 		CE9B579E28A57FA10063AC8A /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				9A69D63028AF6BF200142778 /* Services */,
 				CE9B57B328A5810E0063AC8A /* Default */,
 				CE9B57B428A581AD0063AC8A /* Common */,
+				9A69D63028AF6BF200142778 /* Services */,
 				CE9B57B728A61C740063AC8A /* Modules */,
 			);
 			path = Project;
@@ -385,6 +419,7 @@
 			files = (
 				CE6B422728AA19DB00A97D05 /* AppCoordinator.swift in Sources */,
 				CE6B422D28AA272F00A97D05 /* TabBarController.swift in Sources */,
+				9A29D01528BCC3F200B339A6 /* FeatureToggleProvider.swift in Sources */,
 				CE9B57C028A61DF30063AC8A /* CatalogFactory.swift in Sources */,
 				CE6B422B28AA271C00A97D05 /* TabBarCoordinator.swift in Sources */,
 				CE9B57C628A62FB70063AC8A /* HomeController.swift in Sources */,
@@ -401,16 +436,21 @@
 				CE9B57A428A57FA10063AC8A /* CatalogController.swift in Sources */,
 				CE6B423128AA3D5F00A97D05 /* CatalogCoordinator.swift in Sources */,
 				CE9B57C428A62C930063AC8A /* HomeFactory.swift in Sources */,
+				9A29D01728BCC67000B339A6 /* RemoteFeatureToggleProvider.swift in Sources */,
 				CE9B57A028A57FA10063AC8A /* AppDelegate.swift in Sources */,
 				CE9B57C828A63D9C0063AC8A /* ModuleBuilder.swift in Sources */,
 				CE6B423628AA4DC200A97D05 /* HomeInfoController.swift in Sources */,
 				CE6B423428AA4DAA00A97D05 /* HomeInfoCoordinator.swift in Sources */,
+				9A29D01328BCC2AA00B339A6 /* FeatureToggleService.swift in Sources */,
 				CE9B57A228A57FA10063AC8A /* SceneDelegate.swift in Sources */,
 				9A38644B28ACCA870055C905 /* CartCoordinator.swift in Sources */,
 				9A69D63228AF6E0200142778 /* ApiService.swift in Sources */,
+				9A29D01928BCD21900B339A6 /* RemoteFeatureToggleService.swift in Sources */,
 				9AC5E07128ACE70D0088DD3E /* UIView.swift in Sources */,
 				9A38645228ACCA940055C905 /* UserProfileFactory.swift in Sources */,
+				9A29D01128BCC29800B339A6 /* Feature.swift in Sources */,
 				9A38645C28ACD4230055C905 /* HomeItemCell.swift in Sources */,
+				9A29D00F28BCB92C00B339A6 /* FeatureToggle.swift in Sources */,
 				9A69D64328B351DA00142778 /* ProductCell.swift in Sources */,
 				9A38645028ACCA940055C905 /* UserProfileController.swift in Sources */,
 				CE9B57BE28A61D970063AC8A /* ModuleFactory.swift in Sources */,

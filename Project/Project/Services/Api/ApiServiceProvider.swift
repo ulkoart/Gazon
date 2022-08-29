@@ -32,6 +32,7 @@ final class ApiServiceProvider<T: ApiService> {
 				}
 				completion(.success(response))
 			case let .failure(error):
+				// TODO: обрабатывать ошибки
 				print(error)
 			}
 		}
