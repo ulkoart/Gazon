@@ -44,7 +44,7 @@ final class AppCoordinator: Coordinator {
 		let remoteFeatureToggleServiceApi = ApiServiceProvider<RemoteFeatureToggleService>()
 		ServiceLocator.shared.register(service: remoteFeatureToggleServiceApi)
 
-		featureToggleFacade = FeatureToggleFacade() { [weak self] in
+		featureToggleFacade = FeatureToggleFacade { [weak self] in
 			DispatchQueue.main.async {
 				self?.coordinateToMainFlow()
 			}

@@ -19,7 +19,7 @@ struct RemoteFeatureToggleProvider: FeatureToggleProvider {
 			switch result {
 			case let .success(toggles):
 				completion(toggles)
-			case .failure(_):
+			case .failure:
 				completion([])
 			}
 		}

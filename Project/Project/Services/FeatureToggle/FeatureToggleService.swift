@@ -15,16 +15,16 @@ protocol FeatureToggleServiceProtocol {
 final class FeatureToggleService: FeatureToggleServiceProtocol {
 	private let provider: FeatureToggleProvider
 	private var featureToggles: [FeatureToggle] = []
-	
+
 	init(_ provider: FeatureToggleProvider) {
 		self.provider = provider
 	}
-	
+
 	func isEnabled(_ feature: Feature) -> Bool {
 		let feature = featureToggles.first(where: { $0.feature == feature })
 		return feature?.enabled ?? false
 	}
-	
+
 	func fetchToggles(complition: (() -> Void)? = nil) {
 		provider.fetchFeatureToggles { [weak self] featureToggles in
 			self?.featureToggles = featureToggles
