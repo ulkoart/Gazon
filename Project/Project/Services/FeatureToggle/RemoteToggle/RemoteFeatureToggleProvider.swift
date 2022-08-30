@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Провайдер тоглов с сервера
 struct RemoteFeatureToggleProvider: FeatureToggleProvider {
 	func fetchFeatureToggles(_ completion: @escaping ([FeatureToggle]) -> Void) {
 		let service = ApiServiceProvider<RemoteFeatureToggleService>()

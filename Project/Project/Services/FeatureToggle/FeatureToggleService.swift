@@ -8,19 +8,21 @@
 import Foundation
 
 final class FeatureToggleService {
-	static let shared = FeatureToggleService()
-	private var featureToggles: [FeatureToggle] = []
+	private let provider: FeatureToggleProvider
+	var featureToggles: [FeatureToggle] = []
 	
-	private init() { }
+	init(_ provider: FeatureToggleProvider) {
+		self.provider = provider
+	}
 	
 	func isEnabled(_ feature: Feature) -> Bool {
 		let feature = featureToggles.first(where: { $0.feature == feature })
 		return feature?.enabled ?? false
 	}
 	
-	func fetchFeatureToggles(provider: FeatureToggleProvider, complition: @escaping () -> Void) {
-		provider.fetchFeatureToggles { featureToggles in
-			self.featureToggles = featureToggles
+	func fetchToggles(complition: @escaping () -> Void) {
+		provider.fetchFeatureToggles { [weak self] featureToggles in
+			self?.featureToggles = featureToggles
 			complition()
 		}
 	}
