@@ -18,22 +18,13 @@ final class FeatureToggleFacade {
 	init(complition: @escaping () -> Void) {
 		let localProvider = LocalFeatureToggleProvider()
 		let remoteProvider = RemoteFeatureToggleProvider()
-		let dispatchGroup = DispatchGroup()
 
 		self.localFeatureToggleService = FeatureToggleService(localProvider)
 		self.remoteFeatureToggleService = FeatureToggleService(remoteProvider)
 
-		dispatchGroup.enter()
-		self.localFeatureToggleService.fetchToggles {
-			dispatchGroup.leave()
-		}
+		self.localFeatureToggleService.fetchToggles()
 
-		dispatchGroup.enter()
 		self.remoteFeatureToggleService.fetchToggles {
-			dispatchGroup.leave()
-		}
-
-		dispatchGroup.notify(queue: .main) {
 			complition()
 		}
 	}

@@ -7,9 +7,14 @@
 
 import Foundation
 
-final class FeatureToggleService {
+protocol FeatureToggleServiceProtocol {
+	func isEnabled(_ feature: Feature) -> Bool
+	func fetchToggles(complition: (() -> Void)?)
+}
+
+final class FeatureToggleService: FeatureToggleServiceProtocol {
 	private let provider: FeatureToggleProvider
-	var featureToggles: [FeatureToggle] = []
+	private var featureToggles: [FeatureToggle] = []
 	
 	init(_ provider: FeatureToggleProvider) {
 		self.provider = provider
@@ -20,10 +25,10 @@ final class FeatureToggleService {
 		return feature?.enabled ?? false
 	}
 	
-	func fetchToggles(complition: @escaping () -> Void) {
+	func fetchToggles(complition: (() -> Void)? = nil) {
 		provider.fetchFeatureToggles { [weak self] featureToggles in
 			self?.featureToggles = featureToggles
-			complition()
+			complition?()
 		}
 	}
 }

@@ -10,7 +10,11 @@ import Foundation
 /// Провайдер тоглов с сервера
 struct RemoteFeatureToggleProvider: FeatureToggleProvider {
 	func fetchFeatureToggles(_ completion: @escaping ([FeatureToggle]) -> Void) {
-		let service = ApiServiceProvider<RemoteFeatureToggleService>()
+		guard let service: ApiServiceProvider<RemoteFeatureToggleService> = ServiceLocator.shared.resolve() else {
+			completion([])
+			return
+		}
+
 		service.load(service: .toggles, decodeType: [FeatureToggle].self) { result in
 			switch result {
 			case let .success(toggles):

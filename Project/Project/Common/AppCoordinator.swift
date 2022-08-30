@@ -40,15 +40,14 @@ final class AppCoordinator: Coordinator {
     }
 
 	private func loadConfiguration() {
-		let dispatchGroup = DispatchGroup()
 
-		dispatchGroup.enter()
-		featureToggleFacade = FeatureToggleFacade() {
-			dispatchGroup.leave()
-		}
+		let remoteFeatureToggleServiceApi = ApiServiceProvider<RemoteFeatureToggleService>()
+		ServiceLocator.shared.register(service: remoteFeatureToggleServiceApi)
 
-		dispatchGroup.notify(queue: .main) { [weak self] in
-			self?.coordinateToMainFlow()
+		featureToggleFacade = FeatureToggleFacade() { [weak self] in
+			DispatchQueue.main.async {
+				self?.coordinateToMainFlow()
+			}
 		}
 	}
 }
