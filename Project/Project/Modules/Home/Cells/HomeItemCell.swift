@@ -12,8 +12,8 @@ final class HomeItemCell: UICollectionViewCell {
 
 	private let titleLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.font = .init(.systemFont(ofSize: 12, weight: .medium))
-		$0.textColor = .systemGreen
+		$0.font = .init(.systemFont(ofSize: 12, weight: .bold))
+		$0.textColor = .mango
 		$0.text = "QR КОД ДОСТАВКИ"
 		return $0
 	}(UILabel())
@@ -21,7 +21,7 @@ final class HomeItemCell: UICollectionViewCell {
 	private let textLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.font = .init(.systemFont(ofSize: 12, weight: .medium))
-		$0.textColor = .black
+		$0.textColor = .navy
 		$0.text = "Покажите этот код"
 		return $0
 	}(UILabel())
@@ -29,7 +29,7 @@ final class HomeItemCell: UICollectionViewCell {
 	private let codeLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.font = .init(.systemFont(ofSize: 12, weight: .bold))
-		$0.textColor = .black
+		$0.textColor = .navy
 		$0.text = "748"
 		return $0
 	}(UILabel())
@@ -43,6 +43,7 @@ final class HomeItemCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		backgroundColor = .white
+		// view.backgroundColor = UIColor(white: 0.95, alpha: 1)
 
 		layer.cornerRadius = 8
 		layer.shadowRadius = 5.0

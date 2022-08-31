@@ -54,7 +54,7 @@ final class HomeController: UIViewController {
     }
 
 	private func setup() {
-		view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+		view.backgroundColor = .almond
 		addInfoButton()
 		view.addSubview(collectionView)
 		collectionView.fillSuperview()

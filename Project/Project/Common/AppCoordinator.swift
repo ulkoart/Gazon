@@ -7,19 +7,7 @@
 
 import UIKit
 
-final class PreviewViewController: UIViewController {
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		view.backgroundColor = UIColor(white: 0.95, alpha: 1)
-	}
-
-	deinit {
-		print("\(Self.self) - \(#function)")
-	}
-}
-
-protocol AppFlow {
+protocol AppFlow: AnyObject {
 	func coordinateToMainFlow()
 }
 
@@ -34,7 +22,7 @@ final class AppCoordinator: Coordinator {
     }
 
     func start() {
-		let previewViewController = PreviewViewController()
+		let previewViewController = SplashController()
 		navigationController.viewControllers = [previewViewController]
 		loadConfiguration()
     }
@@ -45,7 +33,7 @@ final class AppCoordinator: Coordinator {
 		ServiceLocator.shared.register(service: remoteFeatureToggleServiceApi)
 
 		featureToggleFacade = FeatureToggleFacade { [weak self] in
-			DispatchQueue.main.async {
+			DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 				self?.coordinateToMainFlow()
 			}
 		}

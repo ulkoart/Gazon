@@ -18,6 +18,8 @@
 		9A29D02328BD131500B339A6 /* RemoteFeatureToggleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D02228BD131500B339A6 /* RemoteFeatureToggleService.swift */; };
 		9A29D02828BDDF2400B339A6 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D02728BDDF2300B339A6 /* ServiceLocator.swift */; };
 		9A29D02A28BDE9BC00B339A6 /* ServiceLocating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D02928BDE9BC00B339A6 /* ServiceLocating.swift */; };
+		9A29D02D28BF2EDF00B339A6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D02C28BF2EDF00B339A6 /* UIColor.swift */; };
+		9A29D02F28BF327600B339A6 /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D02E28BF327600B339A6 /* SplashController.swift */; };
 		9A38644928ACCA870055C905 /* CartFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644628ACCA870055C905 /* CartFactory.swift */; };
 		9A38644A28ACCA870055C905 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644728ACCA870055C905 /* CartController.swift */; };
 		9A38644B28ACCA870055C905 /* CartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644828ACCA870055C905 /* CartCoordinator.swift */; };
@@ -65,6 +67,8 @@
 		9A29D02228BD131500B339A6 /* RemoteFeatureToggleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeatureToggleService.swift; sourceTree = "<group>"; };
 		9A29D02728BDDF2300B339A6 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		9A29D02928BDE9BC00B339A6 /* ServiceLocating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocating.swift; sourceTree = "<group>"; };
+		9A29D02C28BF2EDF00B339A6 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9A29D02E28BF327600B339A6 /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
 		9A38644628ACCA870055C905 /* CartFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartFactory.swift; sourceTree = "<group>"; };
 		9A38644728ACCA870055C905 /* CartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
 		9A38644828ACCA870055C905 /* CartCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartCoordinator.swift; sourceTree = "<group>"; };
@@ -153,6 +157,14 @@
 			path = ServiceLocator;
 			sourceTree = "<group>";
 		};
+		9A29D02B28BF248E00B339A6 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				9A29D02E28BF327600B339A6 /* SplashController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		9A38644528ACCA870055C905 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				9AC5E07028ACE70D0088DD3E /* UIView.swift */,
+				9A29D02C28BF2EDF00B339A6 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,6 +337,7 @@
 		CE9B57B728A61C740063AC8A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9A29D02B28BF248E00B339A6 /* Splash */,
 				CE6B422928AA253600A97D05 /* TabBar */,
 				CE9B57C228A62C300063AC8A /* Home */,
 				CE6B423228AA4D8600A97D05 /* HomeInfo */,
@@ -450,11 +464,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6B422728AA19DB00A97D05 /* AppCoordinator.swift in Sources */,
+				9A29D02D28BF2EDF00B339A6 /* UIColor.swift in Sources */,
 				CE6B422D28AA272F00A97D05 /* TabBarController.swift in Sources */,
 				9A29D01528BCC3F200B339A6 /* FeatureToggleProvider.swift in Sources */,
 				CE9B57C028A61DF30063AC8A /* CatalogFactory.swift in Sources */,
 				9A29D02A28BDE9BC00B339A6 /* ServiceLocating.swift in Sources */,
 				CE6B422B28AA271C00A97D05 /* TabBarCoordinator.swift in Sources */,
+				9A29D02F28BF327600B339A6 /* SplashController.swift in Sources */,
 				9A29D02128BD0F8F00B339A6 /* FeatureToggleFacade.swift in Sources */,
 				CE9B57C628A62FB70063AC8A /* HomeController.swift in Sources */,
 				9A38645928ACD1320055C905 /* HomeViewModel.swift in Sources */,
