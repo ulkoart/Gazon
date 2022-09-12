@@ -33,7 +33,7 @@ final class AppCoordinator: Coordinator {
 		ServiceLocator.shared.register(service: remoteFeatureToggleServiceApi)
 
 		featureToggleFacade = FeatureToggleFacade { [weak self] in
-			DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 				self?.coordinateToMainFlow()
 			}
 		}

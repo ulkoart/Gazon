@@ -14,10 +14,11 @@ final class HomeInfoController: UIViewController {
     private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.setTitle("Закрыть", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = true
         button.sizeToFit()
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.white.cgColor
+		button.layer.borderColor = UIColor.navy?.cgColor
+		button.setTitleColor(UIColor.navy ?? .black, for: .normal)
 		button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -37,18 +38,41 @@ final class HomeInfoController: UIViewController {
     }
 
     private func setup() {
-        view.backgroundColor = .systemBlue
-
+		view.backgroundColor = .almond
+		
+		// MARK: - logoImageView
 		view.addSubview(logoImageView)
-		logoImageView.centerInSuperview()
 
+		let rootViewWidth = view.frame.width // TODO: vs frame.size.width
+		let rootViewHeight = view.frame.height
+
+		let logoImageViewWidth: Double = 150
+		let logoImageViewHeight: Double = 150
+		let logoImageViewX = (rootViewWidth / 2) - (logoImageViewWidth / 2)
+		let logoImageViewY = (rootViewHeight / 2) - (logoImageViewHeight / 2)
+
+		let logoImageViewFrame: CGRect = .init(
+			x: logoImageViewX,
+			y: logoImageViewY,
+			width: logoImageViewWidth,
+			height: logoImageViewHeight
+		)
+		logoImageView.frame = logoImageViewFrame
+
+		// MARK: - closeButton
 		view.addSubview(closeButton)
-        NSLayoutConstraint.activate([
-            closeButton.widthAnchor.constraint(equalToConstant: 200),
-            closeButton.heightAnchor.constraint(equalToConstant: 50),
-			closeButton.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 8),
-            closeButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        ])
+
+		let closeButtonWidth: Double = 150
+		let closeButtonHeight: Double = 50
+		let closeButtonX: Double = logoImageView.frame.minX
+		let closeButtonY: Double = logoImageView.frame.maxY + 8.0
+
+		closeButton.frame = .init(
+			x: closeButtonX,
+			y: closeButtonY,
+			width: closeButtonWidth,
+			height: closeButtonHeight
+		)
     }
 
     @objc func closeButtonTapped(_ sender: UIButton) {
