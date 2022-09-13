@@ -31,7 +31,7 @@ final class ProductCell: UICollectionViewCell {
 	private let priceLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.font = .init(.systemFont(ofSize: 12, weight: .bold))
-		$0.textColor = .black
+		$0.textColor = .navy
 		$0.text = "3 168 ₽"
 		return $0
 	}(UILabel())
@@ -39,7 +39,7 @@ final class ProductCell: UICollectionViewCell {
 	private let titleLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.font = .init(.systemFont(ofSize: 12, weight: .regular))
-		$0.textColor = .black
+		$0.textColor = .navy
 		$0.text = "Пиво \"Duff\""
 		return $0
 	}(UILabel())

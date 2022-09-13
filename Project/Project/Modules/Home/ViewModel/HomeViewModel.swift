@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol HomeViewModel {
-	var itemsPublisher: Published<[Item]>.Publisher { get }
+	var itemsPublisher: Published<[Product]>.Publisher { get }
 	var isLoadingPublisher: Published<Bool>.Publisher { get }
 	var itemsCount: Int { get }
 
@@ -17,28 +17,28 @@ protocol HomeViewModel {
 }
 
 final class HomeViewModelImpl: ObservableObject {
-	let provider: ApiServiceProvider<JPHService>
+	let provider: ApiServiceProvider<ProductsService>
 
-	@Published private var items: [Item] = []
+	@Published private var items: [Product] = []
 	@Published private var isLoading: Bool = false
 
-	init(provider: ApiServiceProvider<JPHService> = ApiServiceProvider<JPHService>()) {
+	init(provider: ApiServiceProvider<ProductsService> = ApiServiceProvider<ProductsService>()) {
 		self.provider = provider
 	}
 }
 
 extension HomeViewModelImpl: HomeViewModel {
 	var isLoadingPublisher: Published<Bool>.Publisher { $isLoading}
-	var itemsPublisher: Published<[Item]>.Publisher { $items }
+	var itemsPublisher: Published<[Product]>.Publisher { $items }
 	var itemsCount: Int { items.count }
 
 	func retrieveData() {
 		self.isLoading = true
 
-		provider.load(service: .todos, decodeType: [Item].self) { [weak self] result in
+		provider.load(service: .products, decodeType: [Product].self) { [weak self] result in
 			switch result {
-			case let .success(todos):
-				self?.items = todos
+			case let .success(products):
+				self?.items = products
 				self?.isLoading = false
 			case let .failure(error):
 				fatalError("Нужно обрабатывать ошибки сети! \(error)")

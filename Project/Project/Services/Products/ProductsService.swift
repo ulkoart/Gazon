@@ -7,22 +7,22 @@
 
 import Foundation
 
-enum JPHService {
-	case todos
-	case todo(id: String)
+enum ProductsService {
+	case products
+	case productDetaild(id: String)
 }
 
-extension JPHService: ApiService {
+extension ProductsService: ApiService {
 	var baseURL: String {
-		"https://jsonplaceholder.typicode.com"
+		"https://62fc868bb9e38585cd408802.mockapi.io"
 	}
 
 	var path: String {
 		switch self {
-		case .todos:
-			return "/todos/"
-		case .todo(let id):
-			return "/todos/\(id)"
+		case .products:
+			return "/products"
+		case .productDetaild(let id):
+			return "/products/\(id)"
 		}
 	}
 
@@ -35,13 +35,11 @@ extension JPHService: ApiService {
 	}
 }
 
-struct Item: Codable {
-	let userID, id: Int
+struct Product: Codable {
+	let id: String
 	let title: String
-	let completed: Bool
 
 	enum CodingKeys: String, CodingKey {
-		case userID = "userId"
-		case id, title, completed
+		case id, title
 	}
 }

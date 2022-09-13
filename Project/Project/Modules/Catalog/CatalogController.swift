@@ -28,7 +28,8 @@ final class CatalogController: UIViewController {
     }
 
 	private func setup() {
-		view.backgroundColor = UIColor(white: 0.98, alpha: 1)
+		// view.backgroundColor = UIColor(white: 0.98, alpha: 1)
+		view.backgroundColor = .almond
 
 		view.addSubview(collectionView)
 		collectionView.fillSuperview()
