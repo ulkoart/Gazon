@@ -15,7 +15,7 @@ class HomeViewModelMock: HomeViewModel {
 	var isLoadingPublisher: Published<Bool>.Publisher { $isLoading}
 	var itemsPublisher: Published<[Product]>.Publisher { $items }
 	var itemsCount: Int { items.count }
-	
+
 	func retrieveData() {
 		isCallretrieveData = true
 	}

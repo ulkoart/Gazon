@@ -39,15 +39,15 @@ final class HomeInfoController: UIViewController {
 
     private func setup() {
 		view.backgroundColor = .almond
-		
+
 		// MARK: - logoImageView
 		view.addSubview(logoImageView)
 
 		let rootViewWidth = view.frame.width // TODO: vs frame.size.width
 		let rootViewHeight = view.frame.height
 
-		let logoImageViewWidth: Double = 150
-		let logoImageViewHeight: Double = 150
+		let logoImageViewWidth: CGFloat = 150
+		let logoImageViewHeight: CGFloat = 150
 		let logoImageViewX = (rootViewWidth / 2) - (logoImageViewWidth / 2)
 		let logoImageViewY = (rootViewHeight / 2) - (logoImageViewHeight / 2)
 
@@ -62,17 +62,19 @@ final class HomeInfoController: UIViewController {
 		// MARK: - closeButton
 		view.addSubview(closeButton)
 
-		let closeButtonWidth: Double = 150
-		let closeButtonHeight: Double = 50
-		let closeButtonX: Double = logoImageView.frame.minX
-		let closeButtonY: Double = logoImageView.frame.maxY + 8.0
+		let closeButtonWidth: CGFloat = 150
+		let closeButtonHeight: CGFloat = 50
+		let closeButtonX: CGFloat = logoImageView.frame.minX
+		let closeButtonY: CGFloat = logoImageView.frame.maxY + 8.0
 
-		closeButton.frame = .init(
-			x: closeButtonX,
-			y: closeButtonY,
-			width: closeButtonWidth,
-			height: closeButtonHeight
-		)
+        let closeButtonFrame: CGRect = .init(
+            x: closeButtonX,
+            y: closeButtonY,
+            width: closeButtonWidth,
+            height: closeButtonHeight
+        )
+
+		closeButton.frame = closeButtonFrame
     }
 
     @objc func closeButtonTapped(_ sender: UIButton) {

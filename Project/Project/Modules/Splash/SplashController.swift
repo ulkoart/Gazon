@@ -42,15 +42,26 @@ final class SplashController: UIViewController {
 	}
 
 	private func animateTitleLableColor(_ color: UIColor?) {
-		UIView.transition(with: titleLable, duration: 0.3, options: .transitionCrossDissolve, animations: {
-			self.titleLable.textColor = color
-		}) { finished in
-			if finished {
-				self.animateTitleLableColor(
-					self.nextColor[color] ?? color
-				)
-			}
-		}
+
+        let animations: () -> Void = {
+            self.titleLable.textColor = color
+        }
+
+        let completion: (Bool) -> Void = { finished in
+            if finished {
+                self.animateTitleLableColor(
+                    self.nextColor[color] ?? color
+                )
+            }
+        }
+
+        UIView.transition(
+            with: titleLable,
+            duration: 0.3,
+            options: .transitionCrossDissolve,
+            animations: animations,
+            completion: completion
+        )
 	}
 
 	deinit {
