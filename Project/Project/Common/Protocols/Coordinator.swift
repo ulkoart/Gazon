@@ -18,7 +18,7 @@ extension Coordinator {
         childCoordinators.append(coordinator)
     }
 
-    func free(coordinator: Coordinator) {
+    func free(coordinator: Coordinator?) {
         childCoordinators = childCoordinators.filter { $0 !== coordinator }
     }
 }

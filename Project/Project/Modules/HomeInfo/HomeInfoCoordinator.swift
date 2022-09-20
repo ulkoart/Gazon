@@ -28,7 +28,7 @@ final class HomeInfoCoordinator: Coordinator {
     }
 
     deinit {
-        print("deinit - HomeInfoCoordinator")
+		Logger.shared.log("🗑 - \(Self.self)")
     }
 }
 

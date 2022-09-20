@@ -11,7 +11,6 @@
 		9A29D01128BCC29800B339A6 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01028BCC29800B339A6 /* Feature.swift */; };
 		9A29D01528BCC3F200B339A6 /* FeatureToggleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01428BCC3F200B339A6 /* FeatureToggleProvider.swift */; };
 		9A29D01728BCC67000B339A6 /* RemoteFeatureToggleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01628BCC66F00B339A6 /* RemoteFeatureToggleProvider.swift */; };
-		9A29D01928BCD21900B339A6 /* FeatureToggleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01828BCD21900B339A6 /* FeatureToggleService.swift */; };
 		9A29D01D28BD0B3800B339A6 /* LocalFeatureToggleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01C28BD0B3800B339A6 /* LocalFeatureToggleProvider.swift */; };
 		9A29D01F28BD0B9200B339A6 /* Toggles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A29D01E28BD0B9200B339A6 /* Toggles.plist */; };
 		9A29D02128BD0F8F00B339A6 /* FeatureToggleFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D02028BD0F8F00B339A6 /* FeatureToggleFacade.swift */; };
@@ -57,14 +56,12 @@
 		9ADEE51928D0623000712D2A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE4F328D05EAD00712D2A /* Logger.swift */; };
 		9ADEE51A28D0623000712D2A /* ServiceLocating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D02928BDE9BC00B339A6 /* ServiceLocating.swift */; };
 		9ADEE51B28D0623000712D2A /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D02728BDDF2300B339A6 /* ServiceLocator.swift */; };
-		9ADEE51C28D0623000712D2A /* LocalFeatureToggleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01C28BD0B3800B339A6 /* LocalFeatureToggleProvider.swift */; };
 		9ADEE51D28D0623000712D2A /* RemoteFeatureToggleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01628BCC66F00B339A6 /* RemoteFeatureToggleProvider.swift */; };
 		9ADEE51E28D0623000712D2A /* RemoteFeatureToggleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D02228BD131500B339A6 /* RemoteFeatureToggleService.swift */; };
 		9ADEE51F28D0623000712D2A /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01028BCC29800B339A6 /* Feature.swift */; };
 		9ADEE52028D0623000712D2A /* FeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D00E28BCB92C00B339A6 /* FeatureToggle.swift */; };
 		9ADEE52128D0623000712D2A /* FeatureToggleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01428BCC3F200B339A6 /* FeatureToggleProvider.swift */; };
 		9ADEE52228D0623000712D2A /* FeatureToggleFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D02028BD0F8F00B339A6 /* FeatureToggleFacade.swift */; };
-		9ADEE52328D0623000712D2A /* FeatureToggleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01828BCD21900B339A6 /* FeatureToggleService.swift */; };
 		9ADEE52428D0623100712D2A /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69D63A28AF8F9100142778 /* ProductsService.swift */; };
 		9ADEE52528D0623100712D2A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69D63128AF6E0200142778 /* ApiService.swift */; };
 		9ADEE52628D0623100712D2A /* ApiServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69D63428AF6FAF00142778 /* ApiServiceProvider.swift */; };
@@ -85,6 +82,10 @@
 		9ADEE53528D0623100712D2A /* UserProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644E28ACCA940055C905 /* UserProfileCoordinator.swift */; };
 		9ADEE53628D0623100712D2A /* UserProfileFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644F28ACCA940055C905 /* UserProfileFactory.swift */; };
 		9ADEE53928D0810E00712D2A /* HomeViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE53828D0810E00712D2A /* HomeViewModelMock.swift */; };
+		9ADEE53C28D8B23800712D2A /* LocalFeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE53B28D8B23800712D2A /* LocalFeatureToggle.swift */; };
+		9ADEE54028D8BA7700712D2A /* FeatureToggleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE53F28D8BA7700712D2A /* FeatureToggleProtocol.swift */; };
+		9ADEE54228D8BD9E00712D2A /* RemoteFeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE54128D8BD9E00712D2A /* RemoteFeatureToggle.swift */; };
+		9ADEE54528D9842900712D2A /* SplashFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE54428D9842800712D2A /* SplashFactory.swift */; };
 		CE6B422528AA195900A97D05 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422428AA195900A97D05 /* Coordinator.swift */; };
 		CE6B422728AA19DB00A97D05 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422628AA19DB00A97D05 /* AppCoordinator.swift */; };
 		CE6B422B28AA271C00A97D05 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422A28AA271C00A97D05 /* TabBarCoordinator.swift */; };
@@ -120,7 +121,6 @@
 		9A29D01028BCC29800B339A6 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		9A29D01428BCC3F200B339A6 /* FeatureToggleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggleProvider.swift; sourceTree = "<group>"; };
 		9A29D01628BCC66F00B339A6 /* RemoteFeatureToggleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeatureToggleProvider.swift; sourceTree = "<group>"; };
-		9A29D01828BCD21900B339A6 /* FeatureToggleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggleService.swift; sourceTree = "<group>"; };
 		9A29D01C28BD0B3800B339A6 /* LocalFeatureToggleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeatureToggleProvider.swift; sourceTree = "<group>"; };
 		9A29D01E28BD0B9200B339A6 /* Toggles.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Toggles.plist; sourceTree = "<group>"; };
 		9A29D02028BD0F8F00B339A6 /* FeatureToggleFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggleFacade.swift; sourceTree = "<group>"; };
@@ -148,6 +148,10 @@
 		9ADEE4FB28D0601200712D2A /* ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ADEE4FD28D0601200712D2A /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
 		9ADEE53828D0810E00712D2A /* HomeViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelMock.swift; sourceTree = "<group>"; };
+		9ADEE53B28D8B23800712D2A /* LocalFeatureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeatureToggle.swift; sourceTree = "<group>"; };
+		9ADEE53F28D8BA7700712D2A /* FeatureToggleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggleProtocol.swift; sourceTree = "<group>"; };
+		9ADEE54128D8BD9E00712D2A /* RemoteFeatureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeatureToggle.swift; sourceTree = "<group>"; };
+		9ADEE54428D9842800712D2A /* SplashFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashFactory.swift; sourceTree = "<group>"; };
 		CE6B422428AA195900A97D05 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CE6B422628AA19DB00A97D05 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		CE6B422A28AA271C00A97D05 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -191,32 +195,15 @@
 		9A29D00D28BCB90D00B339A6 /* FeatureToggle */ = {
 			isa = PBXGroup;
 			children = (
-				9A29D01B28BD0AD000B339A6 /* LocalToggleProvider */,
-				9A29D01A28BCD24E00B339A6 /* RemoteToggleProvider */,
+				9ADEE53E28D8B9B400712D2A /* FeatureToggleFacade */,
+				9ADEE53A28D8B20900712D2A /* LocalFeatureToggle */,
+				9ADEE53D28D8B99800712D2A /* RemoteFeatureToggle */,
 				9A29D01028BCC29800B339A6 /* Feature.swift */,
 				9A29D00E28BCB92C00B339A6 /* FeatureToggle.swift */,
 				9A29D01428BCC3F200B339A6 /* FeatureToggleProvider.swift */,
-				9A29D02028BD0F8F00B339A6 /* FeatureToggleFacade.swift */,
-				9A29D01828BCD21900B339A6 /* FeatureToggleService.swift */,
+				9ADEE53F28D8BA7700712D2A /* FeatureToggleProtocol.swift */,
 			);
 			path = FeatureToggle;
-			sourceTree = "<group>";
-		};
-		9A29D01A28BCD24E00B339A6 /* RemoteToggleProvider */ = {
-			isa = PBXGroup;
-			children = (
-				9A29D01628BCC66F00B339A6 /* RemoteFeatureToggleProvider.swift */,
-				9A29D02228BD131500B339A6 /* RemoteFeatureToggleService.swift */,
-			);
-			path = RemoteToggleProvider;
-			sourceTree = "<group>";
-		};
-		9A29D01B28BD0AD000B339A6 /* LocalToggleProvider */ = {
-			isa = PBXGroup;
-			children = (
-				9A29D01C28BD0B3800B339A6 /* LocalFeatureToggleProvider.swift */,
-			);
-			path = LocalToggleProvider;
 			sourceTree = "<group>";
 		};
 		9A29D02628BDDF0A00B339A6 /* ServiceLocator */ = {
@@ -232,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				9A29D02E28BF327600B339A6 /* SplashController.swift */,
+				9ADEE54428D9842800712D2A /* SplashFactory.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -351,6 +339,42 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		9ADEE53A28D8B20900712D2A /* LocalFeatureToggle */ = {
+			isa = PBXGroup;
+			children = (
+				9ADEE53B28D8B23800712D2A /* LocalFeatureToggle.swift */,
+				9A29D01C28BD0B3800B339A6 /* LocalFeatureToggleProvider.swift */,
+			);
+			path = LocalFeatureToggle;
+			sourceTree = "<group>";
+		};
+		9ADEE53D28D8B99800712D2A /* RemoteFeatureToggle */ = {
+			isa = PBXGroup;
+			children = (
+				9ADEE54128D8BD9E00712D2A /* RemoteFeatureToggle.swift */,
+				9A29D01628BCC66F00B339A6 /* RemoteFeatureToggleProvider.swift */,
+				9A29D02228BD131500B339A6 /* RemoteFeatureToggleService.swift */,
+			);
+			path = RemoteFeatureToggle;
+			sourceTree = "<group>";
+		};
+		9ADEE53E28D8B9B400712D2A /* FeatureToggleFacade */ = {
+			isa = PBXGroup;
+			children = (
+				9A29D02028BD0F8F00B339A6 /* FeatureToggleFacade.swift */,
+			);
+			path = FeatureToggleFacade;
+			sourceTree = "<group>";
+		};
+		9ADEE54328D97BD200712D2A /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				CE9B57AD28A57FA20063AC8A /* Info.plist */,
+				9A29D01E28BD0B9200B339A6 /* Toggles.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		CE6B422828AA208500A97D05 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,6 +424,7 @@
 		CE9B579E28A57FA10063AC8A /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				9ADEE54328D97BD200712D2A /* Configuration */,
 				CE9B57B328A5810E0063AC8A /* Default */,
 				CE9B57B428A581AD0063AC8A /* Common */,
 				9A69D63028AF6BF200142778 /* Services */,
@@ -415,8 +440,6 @@
 				CE9B57A128A57FA10063AC8A /* SceneDelegate.swift */,
 				CE9B57A828A57FA20063AC8A /* Assets.xcassets */,
 				CE9B57AA28A57FA20063AC8A /* LaunchScreen.storyboard */,
-				CE9B57AD28A57FA20063AC8A /* Info.plist */,
-				9A29D01E28BD0B9200B339A6 /* Toggles.plist */,
 			);
 			path = Default;
 			sourceTree = "<group>";
@@ -605,14 +628,12 @@
 				9ADEE53928D0810E00712D2A /* HomeViewModelMock.swift in Sources */,
 				9ADEE51A28D0623000712D2A /* ServiceLocating.swift in Sources */,
 				9ADEE51B28D0623000712D2A /* ServiceLocator.swift in Sources */,
-				9ADEE51C28D0623000712D2A /* LocalFeatureToggleProvider.swift in Sources */,
 				9ADEE51D28D0623000712D2A /* RemoteFeatureToggleProvider.swift in Sources */,
 				9ADEE51E28D0623000712D2A /* RemoteFeatureToggleService.swift in Sources */,
 				9ADEE51F28D0623000712D2A /* Feature.swift in Sources */,
 				9ADEE52028D0623000712D2A /* FeatureToggle.swift in Sources */,
 				9ADEE52128D0623000712D2A /* FeatureToggleProvider.swift in Sources */,
 				9ADEE52228D0623000712D2A /* FeatureToggleFacade.swift in Sources */,
-				9ADEE52328D0623000712D2A /* FeatureToggleService.swift in Sources */,
 				9ADEE52428D0623100712D2A /* ProductsService.swift in Sources */,
 				9ADEE52528D0623100712D2A /* ApiService.swift in Sources */,
 				9ADEE52628D0623100712D2A /* ApiServiceProvider.swift in Sources */,
@@ -651,6 +672,7 @@
 				9A29D02D28BF2EDF00B339A6 /* UIColor.swift in Sources */,
 				CE6B422D28AA272F00A97D05 /* TabBarController.swift in Sources */,
 				9A29D01528BCC3F200B339A6 /* FeatureToggleProvider.swift in Sources */,
+				9ADEE54528D9842900712D2A /* SplashFactory.swift in Sources */,
 				CE9B57C028A61DF30063AC8A /* CatalogFactory.swift in Sources */,
 				9A29D02A28BDE9BC00B339A6 /* ServiceLocating.swift in Sources */,
 				CE6B422B28AA271C00A97D05 /* TabBarCoordinator.swift in Sources */,
@@ -665,6 +687,8 @@
 				9A69D63528AF6FAF00142778 /* ApiServiceProvider.swift in Sources */,
 				CE6B422528AA195900A97D05 /* Coordinator.swift in Sources */,
 				9A69D63B28AF8F9100142778 /* ProductsService.swift in Sources */,
+				9ADEE54228D8BD9E00712D2A /* RemoteFeatureToggle.swift in Sources */,
+				9ADEE54028D8BA7700712D2A /* FeatureToggleProtocol.swift in Sources */,
 				9A38644A28ACCA870055C905 /* CartController.swift in Sources */,
 				9A38644928ACCA870055C905 /* CartFactory.swift in Sources */,
 				9A29D01D28BD0B3800B339A6 /* LocalFeatureToggleProvider.swift in Sources */,
@@ -681,7 +705,7 @@
 				9A29D02328BD131500B339A6 /* RemoteFeatureToggleService.swift in Sources */,
 				9A38644B28ACCA870055C905 /* CartCoordinator.swift in Sources */,
 				9A69D63228AF6E0200142778 /* ApiService.swift in Sources */,
-				9A29D01928BCD21900B339A6 /* FeatureToggleService.swift in Sources */,
+				9ADEE53C28D8B23800712D2A /* LocalFeatureToggle.swift in Sources */,
 				9AC5E07128ACE70D0088DD3E /* UIView.swift in Sources */,
 				9A38645228ACCA940055C905 /* UserProfileFactory.swift in Sources */,
 				9A29D01128BCC29800B339A6 /* Feature.swift in Sources */,
@@ -873,7 +897,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2PQNZ2TUC3;
-				INFOPLIST_FILE = Project/Default/Info.plist;
+				INFOPLIST_FILE = Project/Configuration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -893,7 +917,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2PQNZ2TUC3;
-				INFOPLIST_FILE = Project/Default/Info.plist;
+				INFOPLIST_FILE = Project/Configuration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -13,8 +13,11 @@ protocol AppFlow: AnyObject {
 
 final class AppCoordinator: Coordinator {
     var navigationController: UINavigationController
-	var featureToggleFacade: FeatureToggleFacade?
     var childCoordinators: [Coordinator] = []
+
+	var featureToggleFacade: FeatureToggleFacade?
+	var localFeatureToggle: FeatureToggleProtocol?
+	var remoteFeatureToggle: FeatureToggleProtocol?
 
     init (navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -22,20 +25,37 @@ final class AppCoordinator: Coordinator {
     }
 
     func start() {
-		let previewViewController = SplashController()
+		let previewViewController = SplashFactory.createModule()
 		navigationController.viewControllers = [previewViewController]
 		loadConfiguration()
     }
 
 	private func loadConfiguration() {
-
+		
+		// MARK: - ServiceLocator service registration
 		let remoteFeatureToggleServiceApi = ApiServiceProvider<RemoteFeatureToggleService>()
 		ServiceLocator.shared.register(service: remoteFeatureToggleServiceApi)
 
-		featureToggleFacade = FeatureToggleFacade { [weak self] in
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-				self?.coordinateToMainFlow()
-			}
+		// MARK: - FeatureToggle configuration
+		let dispatchGroup = DispatchGroup()
+
+		let localFeatureToggleProvider = LocalFeatureToggleProvider()
+		localFeatureToggle = LocalFeatureToggle(provider: localFeatureToggleProvider)
+
+		let remoteFeatureToggleProvider = RemoteFeatureToggleProvider()
+
+		dispatchGroup.enter()
+		remoteFeatureToggle = RemoteFeatureToggle(provider: remoteFeatureToggleProvider) {
+			dispatchGroup.leave()
+		}
+
+		dispatchGroup.notify(queue: .main) { [weak self] in
+			guard
+				let localFeatureToggle = self?.localFeatureToggle,
+				let remoteFeatureToggle = self?.remoteFeatureToggle
+			else { return }
+			self?.featureToggleFacade = FeatureToggleFacade(localFeatureToggle: localFeatureToggle, remoteFeatureToggle: remoteFeatureToggle)
+			self?.coordinateToMainFlow()
 		}
 	}
 }
@@ -47,3 +67,9 @@ extension AppCoordinator: AppFlow {
 		tabBarCoordinator.start()
 	}
 }
+
+/// Тут загружать сначала локальный фиче-тогл, потом сетевой фиче-тогл
+/// и инициализировать FeatureToggleFacade уже готовыми данными в notify
+///
+/// Разделить local и remote FeatureToggle, возможно оставить общий протокол isEnabled
+/// в дальнейшем все это нужно вынести в отдельную сущность тк для AppCoordinator это лишнее

@@ -65,7 +65,7 @@ final class SplashController: UIViewController {
 	}
 
 	deinit {
-		print("\(Self.self) - \(#function)")
+		Logger.shared.log("🗑 - \(Self.self)")
 	}
 
 	override var prefersStatusBarHidden: Bool {

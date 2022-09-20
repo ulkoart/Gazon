@@ -18,7 +18,6 @@ final class TabBarCoordinator: Coordinator {
     }
 
     func start() {
-
         let homeNavigationController = UINavigationController()
         let homeCoordinator = HomeCoordinator(homeNavigationController)
         homeCoordinator.start()
@@ -46,5 +45,6 @@ final class TabBarCoordinator: Coordinator {
 			userProfileNavigationController
 		]
         navigationController.setViewControllers([tabBarController], animated: false)
+		Logger.shared.log("🏁 - Старт основного флоу")
     }
 }

@@ -34,7 +34,7 @@ final class HomeInfoController: UIViewController {
     }
 
     deinit {
-        print("deinit - HomeInfoController")
+		Logger.shared.log("🗑 - \(Self.self)")
     }
 
     private func setup() {

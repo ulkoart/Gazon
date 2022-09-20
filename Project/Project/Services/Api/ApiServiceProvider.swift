@@ -4,6 +4,8 @@
 //
 //  Created by Улько Артем Викторович on 19.08.2022.
 //
+// Лишнии сообщения в консоли
+// https://stackoverflow.com/questions/44410572/failed-to-register-for-boringssl-log-debug-updates
 
 import Foundation
 
@@ -44,7 +46,7 @@ extension ApiServiceProvider {
 		_ request: URLRequest,
 		deliverQueue: DispatchQueue = DispatchQueue.main,
 		completion: @escaping (Result<Data, Error>) -> Void) {
-			let task = urlSession.dataTask(with: request) { (data, _, error) in
+			let task = urlSession.dataTask(with: request) { (data, response, error) in
 				if let error = error {
 					deliverQueue.async {
 						completion(.failure(error))
@@ -52,12 +54,15 @@ extension ApiServiceProvider {
 				}
 
 				guard
-					let data = data
+					let data = data,
+					let response = response as? HTTPURLResponse,
+					let url = response.url
 				else {
 					completion(.failure(NetworkError.noData))
 					return
 				}
 
+				Logger.shared.log("📶 - запрос выполнен \n        URL: \(url) \n        Код ответа: \(response.statusCode)")
 				completion(.success(data))
 			}
 			task.resume()
