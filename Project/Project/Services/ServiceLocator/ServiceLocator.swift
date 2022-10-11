@@ -26,8 +26,33 @@ extension ServiceLocator: ServiceLocating {
 		services[key] = service
 	}
 
+	func register<T>(factory: @escaping (ServiceLocator) -> T) {
+		let key = typeName(T.self)
+		services[key] = factory(self)
+	}
+
 	func resolve<T>() -> T? {
 		let key = typeName(T.self)
 		return services[key] as? T
 	}
 }
+
+/// Пример регистрации обьекта
+
+/*
+
+class TestServiceLocatorClass {
+	 var testBool: Bool = false
+}
+
+ServiceLocator.shared.register(factory: { _ in
+	let testServiceLocatorClass = TestServiceLocatorClass()
+	testServiceLocatorClass.test = true
+	return testServiceLocatorClass
+} as (ServiceLocator) -> TestServiceLocatorClass)
+
+if let item: TestServiceLocatorClass = ServiceLocator.shared.resolve() {
+	print(item.test)
+}
+
+*/

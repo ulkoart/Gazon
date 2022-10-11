@@ -10,9 +10,10 @@ import UIKit
 enum CatalogFactory: ModuleFactory {
     static func createModule() -> CatalogController {
         let viewController = CatalogController()
-        viewController.tabBarItem.image = UIImage(systemName: "list.bullet.rectangle")
-        viewController.tabBarItem.title = .none
-        viewController.navigationItem.title = "Каталог"
-        return viewController
+		let module = ModuleBuilder(with: viewController)
+			.tabBarItemSystemImage("list.bullet.rectangle")
+			.title("Каталог")
+			.build()
+		return module
     }
 }

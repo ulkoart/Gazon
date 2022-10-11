@@ -6,6 +6,7 @@
 //
 // Лишнии сообщения в консоли
 // https://stackoverflow.com/questions/44410572/failed-to-register-for-boringssl-log-debug-updates
+// xcrun simctl spawn booted log config --subsystem com.apple.network --category boringssl --mode "level:off"
 
 import Foundation
 
@@ -34,8 +35,7 @@ final class ApiServiceProvider<T: ApiService> {
 				}
 				completion(.success(response))
 			case let .failure(error):
-				// TODO: обрабатывать ошибки
-				print(error)
+				completion(.failure(error))
 			}
 		}
 	}
@@ -62,7 +62,7 @@ extension ApiServiceProvider {
 					return
 				}
 
-				Logger.shared.log("📶 - запрос выполнен \n        URL: \(url) \n        Код ответа: \(response.statusCode)")
+				Logger.shared.log("📶 - запрос выполнен \n          URL: \(url) \n          Код ответа: \(response.statusCode)")
 				completion(.success(data))
 			}
 			task.resume()
