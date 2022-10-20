@@ -6,10 +6,21 @@
 //
 
 import UIKit
+import Combine
 
 final class CatalogController: UIViewController {
 
+	private var cancellables: Set<AnyCancellable> = []
+
 	var viewModel: CatalogViewModel?
+
+	// TODO: - вынести в базовый контролер
+	private let activityIndicator: UIActivityIndicatorView = {
+		$0.style = .large
+		$0.hidesWhenStopped = true
+		$0.startAnimating()
+		return $0
+	}(UIActivityIndicatorView())
 
 	private let collectionView: UICollectionView = {
 		let layout = UICollectionViewFlowLayout()
@@ -25,17 +36,38 @@ final class CatalogController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		setup()
-    }
+		bindViewModel()
+		self.viewModel?.retrieveData()
+	}
 
 	private func setup() {
-		// view.backgroundColor = UIColor(white: 0.98, alpha: 1)
 		view.backgroundColor = .almond
-
+		view.addSubview(activityIndicator)
+		activityIndicator.centerInSuperview()
 		view.addSubview(collectionView)
 		collectionView.fillSuperview()
 		collectionView.backgroundColor = .clear
 		collectionView.delegate = self
 		collectionView.dataSource = self
+	}
+
+	private func bindViewModel() {
+		viewModel?.productsPublisher
+		   .receive(on: DispatchQueue.main)
+		   .sink { [weak self] items in
+			   if !items.isEmpty {
+				   self?.collectionView.reloadData()
+				   self?.activityIndicator.stopAnimating()
+			   }
+		   }
+		   .store(in: &cancellables)
+
+		viewModel?.isLoadingPublisher
+			.receive(on: DispatchQueue.main)
+			.sink { [weak self] isLoading in
+				self?.activityIndicator.isHidden = !isLoading
+			}
+			.store(in: &cancellables)
 	}
 }
 
@@ -43,7 +75,7 @@ extension CatalogController: UICollectionViewDelegate {}
 
 extension CatalogController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return viewModel?.numberOfItemsInSection ?? 0
+		return viewModel?.productsCount ?? 0
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -43,7 +43,7 @@ final class HomeItemCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		backgroundColor = .white
-		// view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+		// backgroundColor = UIColor(white: 0.95, alpha: 1)
 
 		layer.cornerRadius = 8
 		layer.shadowRadius = 5.0

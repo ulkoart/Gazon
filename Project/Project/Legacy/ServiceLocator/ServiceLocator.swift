@@ -26,7 +26,7 @@ extension ServiceLocator: ServiceLocating {
 		services[key] = service
 	}
 
-	func register<T>(factory: @escaping (ServiceLocator) -> T) {
+	func register<T>(factory: @escaping (ServiceLocating) -> T) {
 		let key = typeName(T.self)
 		services[key] = factory(self)
 	}
