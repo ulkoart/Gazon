@@ -8,19 +8,11 @@
 import UIKit
 import Combine
 
-final class CatalogController: UIViewController {
+final class CatalogController: BaseController {
 
 	private var cancellables: Set<AnyCancellable> = []
 
 	var viewModel: CatalogViewModel?
-
-	// TODO: - вынести в базовый контролер
-	private let activityIndicator: UIActivityIndicatorView = {
-		$0.style = .large
-		$0.hidesWhenStopped = true
-		$0.startAnimating()
-		return $0
-	}(UIActivityIndicatorView())
 
 	private let collectionView: UICollectionView = {
 		let layout = UICollectionViewFlowLayout()
@@ -42,8 +34,6 @@ final class CatalogController: UIViewController {
 
 	private func setup() {
 		view.backgroundColor = .almond
-		view.addSubview(activityIndicator)
-		activityIndicator.centerInSuperview()
 		view.addSubview(collectionView)
 		collectionView.fillSuperview()
 		collectionView.backgroundColor = .clear
@@ -53,14 +43,14 @@ final class CatalogController: UIViewController {
 
 	private func bindViewModel() {
 		viewModel?.productsPublisher
-		   .receive(on: DispatchQueue.main)
-		   .sink { [weak self] items in
-			   if !items.isEmpty {
-				   self?.collectionView.reloadData()
-				   self?.activityIndicator.stopAnimating()
-			   }
-		   }
-		   .store(in: &cancellables)
+			.receive(on: DispatchQueue.main)
+			.sink { [weak self] items in
+				if !items.isEmpty {
+					self?.collectionView.reloadData()
+					self?.activityIndicator.stopAnimating()
+				}
+			}
+			.store(in: &cancellables)
 
 		viewModel?.isLoadingPublisher
 			.receive(on: DispatchQueue.main)

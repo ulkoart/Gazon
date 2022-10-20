@@ -31,7 +31,7 @@ final class AppCoordinator: Coordinator {
     }
 
 	private func loadConfiguration() {
-		
+
 		// MARK: - ServiceLocator service registration
 		let remoteFeatureToggleServiceApi = ApiServiceProvider<RemoteFeatureToggleService>()
 		ServiceLocator.shared.register(service: remoteFeatureToggleServiceApi)

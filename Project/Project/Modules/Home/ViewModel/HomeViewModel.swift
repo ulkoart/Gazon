@@ -9,40 +9,50 @@ import Foundation
 import Combine
 
 protocol HomeViewModel {
-	var itemsPublisher: Published<[Product]>.Publisher { get }
 	var isLoadingPublisher: Published<Bool>.Publisher { get }
-	var itemsCount: Int { get }
+
+	var code: String? { get }
+	var blocksCount: Int { get }
 
 	func retrieveData()
 }
 
 final class HomeViewModelImpl: ObservableObject {
-	let provider: ApiServiceProvider<ProductsService>
+	let shippingProvider: ApiServiceProvider<ShippingReceivingService>
 
-	@Published private var items: [Product] = []
 	@Published private var isLoading: Bool = false
 
-	init(provider: ApiServiceProvider<ProductsService> = ApiServiceProvider<ProductsService>()) {
-		self.provider = provider
+	var code: String?
+
+	init(provider: ApiServiceProvider<ShippingReceivingService> = ApiServiceProvider<ShippingReceivingService>()) {
+		self.shippingProvider = provider
 	}
 }
 
 extension HomeViewModelImpl: HomeViewModel {
 	var isLoadingPublisher: Published<Bool>.Publisher { $isLoading }
-	var itemsPublisher: Published<[Product]>.Publisher { $items }
-	var itemsCount: Int { items.count }
+	var blocksCount: Int { 2 }
+
 
 	func retrieveData() {
 		self.isLoading = true
-
-		provider.load(service: .products, decodeType: [Product].self) { [weak self] result in
+		var code: String?
+		let group = DispatchGroup()
+		
+		group.enter()
+		shippingProvider.load(service: .deliveryCode(userID: "1234"), decodeType: DeliveryCode.self) { result in
+			defer { group.leave() }
 			switch result {
-			case let .success(products):
-				self?.items = products
-				self?.isLoading = false
+			case let .success(deliveryCode):
+				code = deliveryCode.code
 			case let .failure(error):
 				fatalError("Нужно обрабатывать ошибки сети! \(error)")
 			}
+		}
+
+		group.notify(queue: .main) {
+			self.code = code
+			self.isLoading = false
 		}
 	}
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(*, deprecated, message: "Нужно использовать DIContainer")
 final class ServiceLocator {
 	private lazy var services = [String: Any]()
 

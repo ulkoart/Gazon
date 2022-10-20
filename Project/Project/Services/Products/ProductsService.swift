@@ -34,12 +34,3 @@ extension ProductsService: ApiService {
 		return .get
 	}
 }
-
-struct Product: Codable {
-	let id: String
-	let title: String
-
-	enum CodingKeys: String, CodingKey {
-		case id, title
-	}
-}

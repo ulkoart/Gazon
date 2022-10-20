@@ -32,6 +32,7 @@ extension HomeCoordinator: HomeFlow {
     func coordinateToInfo() {
         let homeInfoCoordinator = HomeInfoCoordinator(navigationController)
         store(coordinator: homeInfoCoordinator)
+
         homeInfoCoordinator.isCompleted = { [weak self, weak homeInfoCoordinator] in
             self?.free(coordinator: homeInfoCoordinator)
         }

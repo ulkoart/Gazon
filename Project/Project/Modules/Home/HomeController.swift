@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-final class HomeController: UIViewController {
+final class HomeController: BaseController {
 
 	private var cancellables: Set<AnyCancellable> = []
 	var viewModel: HomeViewModel?
@@ -19,19 +19,13 @@ final class HomeController: UIViewController {
 		layout.scrollDirection = .vertical
 		let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
 		collection.register(HomeItemCell.self, forCellWithReuseIdentifier: HomeItemCell.identifier)
+		collection.register(PromoXLCell.self, forCellWithReuseIdentifier: PromoXLCell.identifier)
 		collection.translatesAutoresizingMaskIntoConstraints = false
 		collection.showsVerticalScrollIndicator = false
 		collection.isPagingEnabled = false
 		collection.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
 		return collection
 	}()
-
-	private let activityIndicator: UIActivityIndicatorView = {
-		$0.style = .large
-		$0.startAnimating()
-		$0.hidesWhenStopped = true
-		return $0
-	}(UIActivityIndicatorView())
 
 	convenience init() {
 		self.init(viewModel: nil)
@@ -46,12 +40,12 @@ final class HomeController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		setup()
 		bindViewModel()
 		self.viewModel?.retrieveData()
-    }
+	}
 
 	private func setup() {
 		view.backgroundColor = .almond
@@ -61,9 +55,6 @@ final class HomeController: UIViewController {
 		collectionView.backgroundColor = .clear
 		collectionView.delegate = self
 		collectionView.dataSource = self
-
-		view.addSubview(activityIndicator)
-		activityIndicator.centerInSuperview()
 	}
 
 	private func addInfoButton() {
@@ -77,20 +68,12 @@ final class HomeController: UIViewController {
 
 	private func bindViewModel() {
 
-		viewModel?.itemsPublisher
-		   .receive(on: DispatchQueue.main)
-		   .sink { [weak self] items in
-			   if !items.isEmpty {
-				   self?.collectionView.reloadData()
-				   self?.activityIndicator.stopAnimating()
-			   }
-		   }
-		   .store(in: &cancellables)
-
 		viewModel?.isLoadingPublisher
 			.receive(on: DispatchQueue.main)
 			.sink { [weak self] isLoading in
+				self?.collectionView.reloadData()
 				self?.activityIndicator.isHidden = !isLoading
+				self?.collectionView.isHidden = isLoading
 			}
 			.store(in: &cancellables)
 	}
@@ -104,12 +87,25 @@ extension HomeController: UICollectionViewDelegate {}
 
 extension HomeController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return viewModel?.itemsCount ?? 0
+		return viewModel?.blocksCount ?? 0
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeItemCell.identifier, for: indexPath)
-		return cell
+
+		switch indexPath.item {
+		case 0:
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeItemCell.identifier, for: indexPath) as? HomeItemCell
+			guard let cell = cell else { return UICollectionViewCell() }
+			cell.setupWithCode(viewModel?.code)
+			return cell
+
+		case 1:
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PromoXLCell.identifier, for: indexPath) as? PromoXLCell
+			guard let cell = cell else { return UICollectionViewCell() }
+			return cell
+		default:
+			return UICollectionViewCell()
+		}
 	}
 }
 
@@ -119,6 +115,12 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-		return .init(width: view.frame.width - 32, height: 100)
+
+		if indexPath.item == 0 {
+			return .init(width: view.frame.width - 32, height: 80)
+		} else if indexPath.item == 1 {
+			return .init(width: view.frame.width, height: 200)
+		}
+		return .init(width: 0, height: 0)
 	}
 }
