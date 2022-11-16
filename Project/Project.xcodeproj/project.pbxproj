@@ -32,6 +32,7 @@
 		9A38645228ACCA940055C905 /* UserProfileFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38644F28ACCA940055C905 /* UserProfileFactory.swift */; };
 		9A38645928ACD1320055C905 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38645828ACD1320055C905 /* HomeViewModel.swift */; };
 		9A38645C28ACD4230055C905 /* HomeItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38645B28ACD4230055C905 /* HomeItemCell.swift */; };
+		9A4FD0B22924C635007A53C4 /* PromoXLItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FD0B12924C635007A53C4 /* PromoXLItem.swift */; };
 		9A69D63228AF6E0200142778 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69D63128AF6E0200142778 /* ApiService.swift */; };
 		9A69D63528AF6FAF00142778 /* ApiServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69D63428AF6FAF00142778 /* ApiServiceProvider.swift */; };
 		9A69D63B28AF8F9100142778 /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69D63A28AF8F9100142778 /* ProductsService.swift */; };
@@ -147,6 +148,7 @@
 		9A38644F28ACCA940055C905 /* UserProfileFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileFactory.swift; sourceTree = "<group>"; };
 		9A38645828ACD1320055C905 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9A38645B28ACD4230055C905 /* HomeItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemCell.swift; sourceTree = "<group>"; };
+		9A4FD0B12924C635007A53C4 /* PromoXLItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoXLItem.swift; sourceTree = "<group>"; };
 		9A69D63128AF6E0200142778 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		9A69D63428AF6FAF00142778 /* ApiServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceProvider.swift; sourceTree = "<group>"; };
 		9A69D63A28AF8F9100142778 /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
@@ -262,7 +264,7 @@
 		9A31B6352901621000F23A8A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				9A31B6362901622200F23A8A /* PromoXL.swift */,
+				9A4FD0B02924C619007A53C4 /* PromoXL */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -318,6 +320,15 @@
 				9A38645B28ACD4230055C905 /* HomeItemCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		9A4FD0B02924C619007A53C4 /* PromoXL */ = {
+			isa = PBXGroup;
+			children = (
+				9A31B6362901622200F23A8A /* PromoXL.swift */,
+				9A4FD0B12924C635007A53C4 /* PromoXLItem.swift */,
+			);
+			path = PromoXL;
 			sourceTree = "<group>";
 		};
 		9A69D63028AF6BF200142778 /* Services */ = {
@@ -748,6 +759,7 @@
 				9A69D64528B353A800142778 /* IdentifierCell.swift in Sources */,
 				CE6B422F28AA2C7200A97D05 /* HomeCoordinator.swift in Sources */,
 				9A38645128ACCA940055C905 /* UserProfileCoordinator.swift in Sources */,
+				9A4FD0B22924C635007A53C4 /* PromoXLItem.swift in Sources */,
 				9A69D63528AF6FAF00142778 /* ApiServiceProvider.swift in Sources */,
 				CE6B422528AA195900A97D05 /* Coordinator.swift in Sources */,
 				9A69D63B28AF8F9100142778 /* ProductsService.swift in Sources */,

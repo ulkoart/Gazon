@@ -12,6 +12,7 @@ protocol HomeViewModel {
 	var isLoadingPublisher: Published<Bool>.Publisher { get }
 
 	var code: String? { get }
+	var numberOfXLBanners: Int? { get }
 	var blocksCount: Int { get }
 
 	func retrieveData()
@@ -23,9 +24,12 @@ final class HomeViewModelImpl: ObservableObject {
 	@Published private var isLoading: Bool = false
 
 	var code: String?
+	var numberOfXLBanners: Int?
 
-	init(provider: ApiServiceProvider<ShippingReceivingService> = ApiServiceProvider<ShippingReceivingService>()) {
-		self.shippingProvider = provider
+	init(
+		shippingProvider: ApiServiceProvider<ShippingReceivingService> = ApiServiceProvider<ShippingReceivingService>()
+	) {
+		self.shippingProvider = shippingProvider
 	}
 }
 
@@ -33,12 +37,12 @@ extension HomeViewModelImpl: HomeViewModel {
 	var isLoadingPublisher: Published<Bool>.Publisher { $isLoading }
 	var blocksCount: Int { 2 }
 
-
 	func retrieveData() {
 		self.isLoading = true
 		var code: String?
+		var numberOfXLBanners: Int?
 		let group = DispatchGroup()
-		
+
 		group.enter()
 		shippingProvider.load(service: .deliveryCode(userID: "1234"), decodeType: DeliveryCode.self) { result in
 			defer { group.leave() }
@@ -53,6 +57,7 @@ extension HomeViewModelImpl: HomeViewModel {
 		group.notify(queue: .main) {
 			self.code = code
 			self.isLoading = false
+			self.numberOfXLBanners = numberOfXLBanners
 		}
 	}
 }

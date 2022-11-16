@@ -91,7 +91,6 @@ extension HomeController: UICollectionViewDataSource {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
 		switch indexPath.item {
 		case 0:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeItemCell.identifier, for: indexPath) as? HomeItemCell
@@ -102,7 +101,9 @@ extension HomeController: UICollectionViewDataSource {
 		case 1:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PromoXLCell.identifier, for: indexPath) as? PromoXLCell
 			guard let cell = cell else { return UICollectionViewCell() }
+			cell.numberOfBanners = viewModel?.numberOfXLBanners ?? 0
 			return cell
+
 		default:
 			return UICollectionViewCell()
 		}
@@ -117,7 +118,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
 
 		if indexPath.item == 0 {
-			return .init(width: view.frame.width - 32, height: 80)
+			return .init(width: view.frame.width - 16, height: 80)
 		} else if indexPath.item == 1 {
 			return .init(width: view.frame.width, height: 200)
 		}
