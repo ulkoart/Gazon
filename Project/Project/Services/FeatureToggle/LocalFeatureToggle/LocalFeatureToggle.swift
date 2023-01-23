@@ -14,7 +14,8 @@ class LocalFeatureToggle {
 		provider.fetchFeatureToggles { [weak self] featureToggles in
 			guard let self = self else { return }
 			self.featureToggles = featureToggles
-			Logger.shared.log("✅ - \(Self.self)")
+			// Logger.shared.log("✅ - \(Self.self)")
+			Log.info("✅ - \(Self.self)", shouldLogContext: false)
 		}
 	}
 }

@@ -13,6 +13,8 @@ protocol HomeViewModel {
 
 	var code: String? { get }
 	var numberOfXLBanners: Int? { get }
+
+	/// Количество блоков на домашнем экране
 	var blocksCount: Int { get }
 
 	func retrieveData()
@@ -42,6 +44,9 @@ extension HomeViewModelImpl: HomeViewModel {
 		var code: String?
 		var numberOfXLBanners: Int?
 		let group = DispatchGroup()
+
+		// TODO: numberOfXLBanners нужно брать из конфига (сделать конфиг)
+		// TODO: - добавить использование сервиса для получения баннеров XL главного экрана
 
 		group.enter()
 		shippingProvider.load(service: .deliveryCode(userID: "1234"), decodeType: DeliveryCode.self) { result in

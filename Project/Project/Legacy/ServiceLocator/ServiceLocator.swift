@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(*, deprecated, message: "Нужно использовать DIContainer")
 final class ServiceLocator {
 	private lazy var services = [String: Any]()
 
@@ -18,9 +17,9 @@ final class ServiceLocator {
 	private func typeName(_ some: Any) -> String {
 		return (some is Any.Type) ? "\(some)" : "\(type(of: some))"
 	}
-
 }
 
+@available(*, deprecated, message: "Нужно использовать DIContainer")
 extension ServiceLocator: ServiceLocating {
 	func register<T>(service: T) {
 		let key = typeName(T.self)
