@@ -1,0 +1,69 @@
+name: Gazon
+
+configs:
+  Production: release
+  Staging: release
+  Debug: debug
+
+options:
+  minimumXcodeGenVersion: 2.3.0
+  deploymentTarget:
+    iOS: 13.0
+  defaultConfig: Production
+  groupSortPosition: top
+  developmentLanguage: ru
+
+targets:
+  Gazon:
+    type: application
+    platform: iOS
+    deploymentTarget: 13.0
+    sources:
+      - path: Project
+        excludes:
+          - Readme.txt
+    settings:
+      base:
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: $(inherited)
+        CODE_SIGN_IDENTITY: iPhone Developer
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: None
+        DEFINES_MODULE: YES
+        INFOPLIST_FILE: Project/Configuration/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.gazon
+        TARGETED_DEVICE_FAMILY: 1
+        XCODEGEN_STATE: YES
+    scheme:
+      environmentVariables:
+        DYLD_PRINT_STATISTICS: 1
+    postCompileScripts:
+      - script: |
+                export PATH="$PATH:/opt/homebrew/bin"
+                if which swiftlint > /dev/null; then
+                  swiftlint --no-cache
+                else
+                  echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+                fi
+        name: SwiftLint
+
+settings:
+  base:
+    SWIFT_VERSION: 5.0
+    TARGETED_DEVICE_FAMILY: 1
+  configs:
+    Production:
+      ENABLE_TESTABILITY: NO
+      SWIFT_COMPILATION_MODE: wholemodule
+      SWIFT_OPTIMIZATION_LEVEL: -O
+      VALIDATE_PRODUCT: YES
+    Staging:
+      ENABLE_TESTABILITY: NO
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: STAGING
+      SWIFT_COMPILATION_MODE: wholemodule
+      SWIFT_OPTIMIZATION_LEVEL: -O
+      VALIDATE_PRODUCT: YES
+    Debug:
+      ENABLE_TESTABILITY: YES
+      SWIFT_COMPILATION_MODE: singlefile
+      SWIFT_OPTIMIZATION_LEVEL: -Onone
+      VALIDATE_PRODUCT: NO
