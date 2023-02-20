@@ -18,11 +18,11 @@ enum NetworkError: Error {
 final class ApiServiceProvider<T: ApiService> {
 	private let urlSession: URLSession = URLSession(configuration: URLSessionConfiguration.default)
 	private let decoder: JSONDecoder = JSONDecoder()
-
+	
 	func load(service: T, completion: @escaping (Result<Data, Error>) -> Void) {
 		call(service.urlRequest, completion: completion)
 	}
-
+	
 	func load<U>(service: T, decodeType: U.Type, completion: @escaping (Result<U, Error>) -> Void) where U: Decodable {
 		call(service.urlRequest) { result in
 			switch result {
@@ -49,21 +49,22 @@ extension ApiServiceProvider {
 			let task = urlSession.dataTask(with: request) { (data, response, error) in
 				if let error = error {
 					deliverQueue.async {
+						Log.error("📶 - Ошибка запроса к сети", shouldLogContext: false)
 						completion(.failure(error))
 					}
-				}
+				} else {
+					guard
+						let data = data,
+						let response = response as? HTTPURLResponse,
+						let url = response.url
+					else {
+						completion(.failure(NetworkError.noData))
+						return
+					}
 
-				guard
-					let data = data,
-					let response = response as? HTTPURLResponse,
-					let url = response.url
-				else {
-					completion(.failure(NetworkError.noData))
-					return
+					Logger.shared.log("📶 - запрос выполнен \n          URL: \(url) \n          Код ответа: \(response.statusCode)")
+					completion(.success(data))
 				}
-
-				Logger.shared.log("📶 - запрос выполнен \n          URL: \(url) \n          Код ответа: \(response.statusCode)")
-				completion(.success(data))
 			}
 			task.resume()
 		}

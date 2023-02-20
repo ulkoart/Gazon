@@ -22,7 +22,6 @@ class Logger: LoggerProtocol {
 		#if DEBUG
 		print("➡️ - \(item)")
 		#endif
-
 	}
 }
 
@@ -39,7 +38,7 @@ enum Log {
 			case .warning:
 				return "⚠️"
 			case .error:
-				return "⛔️"
+				return "🧨"
 			}
 		}
 	}
@@ -65,7 +64,7 @@ enum Log {
 	}
 
 	static func warning(
-		_ str: StaticString,
+		_ str: String,
 		shouldLogContext: Bool = true,
 		file: String = #file,
 		function: String = #function,
@@ -76,7 +75,7 @@ enum Log {
 	}
 
 	static func error(
-		_ str: StaticString,
+		_ str: String,
 		shouldLogContext: Bool = true,
 		file: String = #file,
 		function: String = #function,
@@ -91,11 +90,11 @@ enum Log {
 
 		var fullString = logComponents.joined(separator: " ")
 		if shouldLogContext {
-			fullString += " ➡️ \(context.description)"
+			fullString += " 📝 \(context.description)"
 		}
 
-		#if DEBUG
+#if DEBUG
 		print(fullString)
-		#endif
+#endif
 	}
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RemoteFeatureToggle {
+final class RemoteFeatureToggle {
 	private var featureToggles: [FeatureToggle] = []
 
 	init(provider: FeatureToggleProvider, complition: @escaping () -> Void) {

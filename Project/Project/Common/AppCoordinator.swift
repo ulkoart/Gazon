@@ -12,23 +12,23 @@ protocol AppFlow: AnyObject {
 }
 
 final class AppCoordinator: Coordinator {
-    var navigationController: UINavigationController
-    var childCoordinators: [Coordinator] = []
+	var navigationController: UINavigationController
+	var childCoordinators: [Coordinator] = []
 
 	var featureToggleFacade: FeatureToggleFacade?
 	var localFeatureToggle: FeatureToggleProtocol?
 	var remoteFeatureToggle: FeatureToggleProtocol?
 
-    init (navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        navigationController.setNavigationBarHidden(true, animated: false)
-    }
+	init (navigationController: UINavigationController) {
+		self.navigationController = navigationController
+		navigationController.setNavigationBarHidden(true, animated: false)
+	}
 
-    func start() {
+	func start() {
 		let previewViewController = SplashFactory.createModule()
 		navigationController.viewControllers = [previewViewController]
 		loadConfiguration()
-    }
+	}
 
 	private func loadConfiguration() {
 
@@ -49,12 +49,21 @@ final class AppCoordinator: Coordinator {
 			dispatchGroup.leave()
 		}
 
+		/// Срабатывает при установленном timedOut
+		let waitResult = dispatchGroup.wait(timeout: .now() + 10)
+		if case .timedOut = waitResult {
+			Log.warning("⏳ - Долгое ожидание dispatchGroup", shouldLogContext: true)
+		}
+
 		dispatchGroup.notify(queue: .main) { [weak self] in
 			guard
 				let localFeatureToggle = self?.localFeatureToggle,
 				let remoteFeatureToggle = self?.remoteFeatureToggle
 			else { return }
-			self?.featureToggleFacade = FeatureToggleFacade(localFeatureToggle: localFeatureToggle, remoteFeatureToggle: remoteFeatureToggle)
+			self?.featureToggleFacade = FeatureToggleFacade(
+				localFeatureToggle: localFeatureToggle,
+				remoteFeatureToggle: remoteFeatureToggle
+			)
 			self?.coordinateToMainFlow()
 		}
 	}

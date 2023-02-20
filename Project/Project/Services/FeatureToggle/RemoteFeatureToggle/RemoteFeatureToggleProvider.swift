@@ -20,6 +20,7 @@ struct RemoteFeatureToggleProvider: FeatureToggleProvider {
 			case let .success(toggles):
 				completion(toggles)
 			case .failure:
+				Log.error("🔘 - Ошибка запроса RemoteToggles", shouldLogContext: false)
 				completion([])
 			}
 		}
