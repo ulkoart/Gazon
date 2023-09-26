@@ -23,7 +23,7 @@ extension ShippingReceivingService: ApiService {
 		}
 	}
 
-	var parameters: [String : Any]? {
+	var parameters: [String: Any]? {
 		return nil
 	}
 

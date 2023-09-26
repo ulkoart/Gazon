@@ -39,6 +39,8 @@
 		9A69D64028B34AE400142778 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69D63F28B34AE400142778 /* CatalogViewModel.swift */; };
 		9A69D64328B351DA00142778 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69D64228B351DA00142778 /* ProductCell.swift */; };
 		9A69D64528B353A800142778 /* IdentifierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69D64428B353A800142778 /* IdentifierCell.swift */; };
+		9A788A0F29A3B6520076BA11 /* AdvertisingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A788A0E29A3B6520076BA11 /* AdvertisingService.swift */; };
+		9A788A1129A3BF000076BA11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A788A1029A3BF000076BA11 /* Constants.swift */; };
 		9AC5E07128ACE70D0088DD3E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5E07028ACE70D0088DD3E /* UIView.swift */; };
 		9ADEE4F428D05EAD00712D2A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE4F328D05EAD00712D2A /* Logger.swift */; };
 		9ADEE4FE28D0601200712D2A /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE4FD28D0601200712D2A /* HomeTests.swift */; };
@@ -92,6 +94,19 @@
 		9ADEE54028D8BA7700712D2A /* FeatureToggleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE53F28D8BA7700712D2A /* FeatureToggleProtocol.swift */; };
 		9ADEE54228D8BD9E00712D2A /* RemoteFeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE54128D8BD9E00712D2A /* RemoteFeatureToggle.swift */; };
 		9ADEE54528D9842900712D2A /* SplashFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE54428D9842800712D2A /* SplashFactory.swift */; };
+		9AEE382D29A5043C006B47AE /* FeatureToggleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE53F28D8BA7700712D2A /* FeatureToggleProtocol.swift */; };
+		9AEE382F29A5046B006B47AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A788A1029A3BF000076BA11 /* Constants.swift */; };
+		9AEE383029A5046B006B47AE /* AdvertisingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A788A0E29A3B6520076BA11 /* AdvertisingService.swift */; };
+		9AEE383129A5046B006B47AE /* ShippingReceivingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A31B63C2901693100F23A8A /* ShippingReceivingService.swift */; };
+		9AEE383229A5046B006B47AE /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A31B63229015E1700F23A8A /* DIContainer.swift */; };
+		9AEE383329A5046B006B47AE /* LocalFeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE53B28D8B23800712D2A /* LocalFeatureToggle.swift */; };
+		9AEE383429A5046B006B47AE /* LocalFeatureToggleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29D01C28BD0B3800B339A6 /* LocalFeatureToggleProvider.swift */; };
+		9AEE383529A5046B006B47AE /* RemoteFeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE54128D8BD9E00712D2A /* RemoteFeatureToggle.swift */; };
+		9AEE383629A5046B006B47AE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A31B639290168D500F23A8A /* Product.swift */; };
+		9AEE383729A5046B006B47AE /* SplashFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEE54428D9842800712D2A /* SplashFactory.swift */; };
+		9AEE383829A5046B006B47AE /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A31B63F290193C900F23A8A /* BaseController.swift */; };
+		9AEE383929A5046B006B47AE /* PromoXL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A31B6362901622200F23A8A /* PromoXL.swift */; };
+		9AEE383A29A5046B006B47AE /* PromoXLItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FD0B12924C635007A53C4 /* PromoXLItem.swift */; };
 		CE6B422528AA195900A97D05 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422428AA195900A97D05 /* Coordinator.swift */; };
 		CE6B422728AA19DB00A97D05 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422628AA19DB00A97D05 /* AppCoordinator.swift */; };
 		CE6B422B28AA271C00A97D05 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B422A28AA271C00A97D05 /* TabBarCoordinator.swift */; };
@@ -155,6 +170,8 @@
 		9A69D63F28B34AE400142778 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
 		9A69D64228B351DA00142778 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		9A69D64428B353A800142778 /* IdentifierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierCell.swift; sourceTree = "<group>"; };
+		9A788A0E29A3B6520076BA11 /* AdvertisingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisingService.swift; sourceTree = "<group>"; };
+		9A788A1029A3BF000076BA11 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9AC5E07028ACE70D0088DD3E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		9ADEE4F328D05EAD00712D2A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		9ADEE4FB28D0601200712D2A /* ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,6 +351,7 @@
 		9A69D63028AF6BF200142778 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9A788A0D29A3B60F0076BA11 /* Advertising */,
 				9A31B63B2901691E00F23A8A /* ShippingReceiving */,
 				9A31B63129015E0900F23A8A /* DIContainer */,
 				9A29D00D28BCB90D00B339A6 /* FeatureToggle */,
@@ -375,6 +393,14 @@
 				9A69D64228B351DA00142778 /* ProductCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		9A788A0D29A3B60F0076BA11 /* Advertising */ = {
+			isa = PBXGroup;
+			children = (
+				9A788A0E29A3B6520076BA11 /* AdvertisingService.swift */,
+			);
+			path = Advertising;
 			sourceTree = "<group>";
 		};
 		9AC5E06F28ACE6FB0088DD3E /* Extensions */ = {
@@ -526,6 +552,7 @@
 				CE6B422628AA19DB00A97D05 /* AppCoordinator.swift */,
 				CE9B57C728A63D9C0063AC8A /* ModuleBuilder.swift */,
 				9ADEE4F328D05EAD00712D2A /* Logger.swift */,
+				9A788A1029A3BF000076BA11 /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -688,12 +715,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AEE382F29A5046B006B47AE /* Constants.swift in Sources */,
+				9AEE383029A5046B006B47AE /* AdvertisingService.swift in Sources */,
+				9AEE383129A5046B006B47AE /* ShippingReceivingService.swift in Sources */,
+				9AEE383229A5046B006B47AE /* DIContainer.swift in Sources */,
+				9AEE383329A5046B006B47AE /* LocalFeatureToggle.swift in Sources */,
+				9AEE383429A5046B006B47AE /* LocalFeatureToggleProvider.swift in Sources */,
+				9AEE383529A5046B006B47AE /* RemoteFeatureToggle.swift in Sources */,
+				9AEE383629A5046B006B47AE /* Product.swift in Sources */,
+				9AEE383729A5046B006B47AE /* SplashFactory.swift in Sources */,
+				9AEE383829A5046B006B47AE /* BaseController.swift in Sources */,
+				9AEE383929A5046B006B47AE /* PromoXL.swift in Sources */,
+				9AEE383A29A5046B006B47AE /* PromoXLItem.swift in Sources */,
 				9ADEE50E28D0623000712D2A /* AppDelegate.swift in Sources */,
 				9ADEE50F28D0623000712D2A /* SceneDelegate.swift in Sources */,
 				9ADEE51028D0623000712D2A /* Assets.xcassets in Sources */,
 				9ADEE51128D0623000712D2A /* LaunchScreen.storyboard in Sources */,
 				9ADEE51328D0623000712D2A /* Toggles.plist in Sources */,
 				9ADEE51428D0623000712D2A /* Coordinator.swift in Sources */,
+				9AEE382D29A5043C006B47AE /* FeatureToggleProtocol.swift in Sources */,
 				9ADEE51528D0623000712D2A /* ModuleFactory.swift in Sources */,
 				9ADEE51628D0623000712D2A /* IdentifierCell.swift in Sources */,
 				9ADEE51728D0623000712D2A /* AppCoordinator.swift in Sources */,
@@ -746,6 +786,7 @@
 				9A29D02D28BF2EDF00B339A6 /* UIColor.swift in Sources */,
 				CE6B422D28AA272F00A97D05 /* TabBarController.swift in Sources */,
 				9A29D01528BCC3F200B339A6 /* FeatureToggleProvider.swift in Sources */,
+				9A788A0F29A3B6520076BA11 /* AdvertisingService.swift in Sources */,
 				9ADEE54528D9842900712D2A /* SplashFactory.swift in Sources */,
 				CE9B57C028A61DF30063AC8A /* CatalogFactory.swift in Sources */,
 				9A29D02A28BDE9BC00B339A6 /* ServiceLocating.swift in Sources */,
@@ -786,6 +827,7 @@
 				9A69D63228AF6E0200142778 /* ApiService.swift in Sources */,
 				9ADEE53C28D8B23800712D2A /* LocalFeatureToggle.swift in Sources */,
 				9A31B640290193C900F23A8A /* BaseController.swift in Sources */,
+				9A788A1129A3BF000076BA11 /* Constants.swift in Sources */,
 				9AC5E07128ACE70D0088DD3E /* UIView.swift in Sources */,
 				9A38645228ACCA940055C905 /* UserProfileFactory.swift in Sources */,
 				9A29D01128BCC29800B339A6 /* Feature.swift in Sources */,

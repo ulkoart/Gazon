@@ -11,7 +11,10 @@ import Combine
 protocol HomeViewModel {
 	var isLoadingPublisher: Published<Bool>.Publisher { get }
 
+	/// Код получения
 	var code: String? { get }
+
+	/// Количество баннеров
 	var numberOfXLBanners: Int? { get }
 
 	/// Количество блоков на домашнем экране
@@ -22,6 +25,7 @@ protocol HomeViewModel {
 
 final class HomeViewModelImpl: ObservableObject {
 	let shippingProvider: ApiServiceProvider<ShippingReceivingService>
+	let advertisingProvider: ApiServiceProvider<AdvertisingService>
 
 	@Published private var isLoading: Bool = false
 
@@ -29,9 +33,11 @@ final class HomeViewModelImpl: ObservableObject {
 	var numberOfXLBanners: Int?
 
 	init(
-		shippingProvider: ApiServiceProvider<ShippingReceivingService> = ApiServiceProvider<ShippingReceivingService>()
+		shippingProvider: ApiServiceProvider<ShippingReceivingService> = ApiServiceProvider<ShippingReceivingService>(),
+		advertisingProvider: ApiServiceProvider<AdvertisingService> = ApiServiceProvider<AdvertisingService>()
 	) {
 		self.shippingProvider = shippingProvider
+		self.advertisingProvider = advertisingProvider
 	}
 }
 
@@ -59,6 +65,15 @@ extension HomeViewModelImpl: HomeViewModel {
 			}
 		}
 
+		group.enter()
+		advertisingProvider.load(service: .homeSrceen(userID: "2a8e1bb7-5d74-4017-8dc6-75a39f1a4f19"), decodeType: AdvertisingHome.self) { result in
+			defer { group.leave() }
+			if let advertisingHome = try? result.get() {
+				numberOfXLBanners = advertisingHome.numberOfXLBanners
+			}
+		}
+
+		// TODO: - возможно нужно сделать обертку для DispatchGroup
 		group.notify(queue: .main) {
 			self.code = code
 			self.isLoading = false

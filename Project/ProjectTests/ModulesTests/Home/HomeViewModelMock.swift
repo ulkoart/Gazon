@@ -8,6 +8,12 @@
 import Foundation
 
 class HomeViewModelMock: HomeViewModel {
+	var code: String?
+
+	var numberOfXLBanners: Int?
+
+	var blocksCount: Int = 0
+
 	var isCallretrieveData = false
 
 	@Published private var items: [Product] = []
@@ -19,6 +25,4 @@ class HomeViewModelMock: HomeViewModel {
 	func retrieveData() {
 		isCallretrieveData = true
 	}
-
-	init() {}
 }
